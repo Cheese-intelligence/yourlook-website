@@ -5,6 +5,8 @@ export async function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
+  const referralSource = req.nextUrl.searchParams.get("ref") || "organic";
+
   const userAgent = req.headers.get("user-agent") || "unknown";
   const referer = req.headers.get("referer") || "direct";
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -24,6 +26,7 @@ export async function proxy(req: NextRequest) {
       user_agent: userAgent,
       referer: referer,
       path: req.nextUrl.pathname,
+      source: referralSource,
     }),
   }).catch((err) => console.error("Analytics failed:", err));
 

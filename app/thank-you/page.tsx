@@ -7,7 +7,8 @@ export default function ThankYou() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.origin);
+      const inviteLink = `${window.location.origin}/?ref=invite`;
+      await navigator.clipboard.writeText(inviteLink);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
