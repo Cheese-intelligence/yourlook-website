@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
       <div>
-        <h1 className="text-2xl font-bold">YourLook</h1>
-        <p>Sign up to our mailing list!</p>
+        <h1 className="text-2xl font-bold tracking-tight">YourLook</h1>
+        <p>Sign up to our mailing list:</p>
       </div>
       <form action={formAction} className="space-y-5">
         <div className="flex flex-col gap-2">
