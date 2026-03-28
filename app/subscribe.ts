@@ -46,6 +46,7 @@ export async function subscribe(prevState: unknown, formData: FormData) {
     if (!mailingRes.ok) {
       return { error: "You're likely already on the list!" };
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e: unknown) {
     return { error: "Something went wrong. Please try again." };
   }

@@ -31,7 +31,7 @@ export default function Home() {
           YourLook
         </h1>
         <p className="text-center text-gray-300">
-          Sign up to our mailing list:
+          Making every haircut legendary.
         </p>
       </div>
       <form action={formAction} className="space-y-5">
@@ -42,7 +42,7 @@ export default function Home() {
           <input
             name="email"
             className="flex h-12 w-full rounded-xl border-2 border-zinc-800 bg-transparent px-4 py-2 placeholder:text-zinc-600 focus:border-zinc-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-            placeholder="example@gmail.com"
+            placeholder="the.best.cut@example.com"
             type="email"
             required
           />
@@ -54,7 +54,7 @@ export default function Home() {
           disabled={pending}
           className="w-full rounded-full inline-flex h-10 items-center justify-center bg-linear-to-r from-[#BDCEFF] via-white to-[#FFF2C0] px-4 py-2 text-sm text-black font-bold transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
         >
-          {pending ? "Signing up..." : "Sign up"}
+          {pending ? "Signing up..." : "Join the list"}
         </button>
       </form>
     </main>
