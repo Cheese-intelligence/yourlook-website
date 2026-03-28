@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState } from "react";
 import { subscribe } from "./subscribe";
+
+import logo from "@/public/logo-hollow.svg";
 
 export default function Home() {
   const [state, formAction, pending] = useActionState(subscribe, {
@@ -9,10 +12,15 @@ export default function Home() {
   });
 
   return (
-    <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
+    <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-7">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">YourLook</h1>
-        <p>Sign up to our mailing list:</p>
+        <Image src={logo} alt="logo" height={48} className="mx-auto mb-5" />
+        <h1 className="text-2xl font-bold tracking-tight text-center">
+          YourLook
+        </h1>
+        <p className="text-center text-gray-300">
+          Sign up to our mailing list:
+        </p>
       </div>
       <form action={formAction} className="space-y-5">
         <div className="flex flex-col gap-2">
