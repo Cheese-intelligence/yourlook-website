@@ -56,7 +56,7 @@ export default function Home() {
           disabled={pending}
           className="w-full rounded-full inline-flex h-10 items-center justify-center bg-linear-to-r from-[#BDCEFF] via-white to-[#FFF2C0] px-4 py-2 text-sm text-black font-bold transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
         >
-          {pending ? "Signing up..." : "Join the list"}
+          {pending ? "Signing up..." : "Join waiting list"}
         </button>
       </form>
     </main>
