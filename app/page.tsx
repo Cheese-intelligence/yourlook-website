@@ -31,7 +31,7 @@ export default function Home() {
           YourLook
         </h1>
         <p className="text-center text-gray-300">
-          Making every haircut legendary.
+          Join the waiting list to find the style that actually fits you.
         </p>
       </div>
       <form action={formAction} className="space-y-5">

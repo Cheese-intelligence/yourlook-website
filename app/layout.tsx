@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "YourLook",
-  description: "Making every haircut legendary.",
+  description: "Join the waiting list to find the look that actually fits you.",
 };
 
 export default function RootLayout({
