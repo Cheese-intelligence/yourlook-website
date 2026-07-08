@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PrivacyNotice</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="397a2f58-2778-8061-811b-e126d0dd9fe5" class="page sans"><header><h1 class="page-title" dir="auto">PrivacyNotice</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="397a2f58-2778-81c6-bc3c-dcc42084a4b9" class="" dir="auto">Last updated: 28 June 2026</p><p id="397a2f58-2778-8135-8137-d02c76502418" class="" dir="auto">Keystone Labs Ltd</p><p id="397a2f58-2778-8165-b40d-ef2351ff2a42" class="" dir="auto">CRN: SC860392 // ICO: ZC187730</p><p id="397a2f58-2778-8100-9ad5-ec56b1edf8f8" class="" dir="auto">1533 Shettleston Road, Glasgow, Scotland, G32 9AS</p><h1 id="397a2f58-2778-811a-9a75-e6b3bb080d8f" class="" dir="auto">1. Introduction</h1><h2 id="397a2f58-2778-81c3-aa29-ff71160fc96e" class="" dir="auto">1.1 Who We Are</h2><p id="397a2f58-2778-817e-a06a-d0bdb30b4176" class="" dir="auto">YourLook (&quot;YourLook&quot;, &quot;we&quot;, &quot;our&quot; or &quot;us&quot;) is operated by Keystone Labs Ltd. For the purposes of UK data protection law, Keystone Labs Ltd is the controller of the Personal Data described in this Privacy Notice.</p><h2 id="397a2f58-2778-81ee-b204-ca4293ce0458" class="" dir="auto">1.2 Our commitment to privacy</h2><p id="397a2f58-2778-81f8-9c95-e1ab539d811f" class="" dir="auto">We are committed to processing Personal Data fairly, lawfully and transparently, and to protecting your privacy in accordance with applicable data protection law.</p><h2 id="397a2f58-2778-8145-8705-f60ef714c8b8" class="" dir="auto">1.3 Scope of this Privacy Notice</h2><p id="397a2f58-2778-8185-adf4-dae4a85fdecc" class="" dir="auto">This Privacy Notice explains what Personal Data we collect, how we use it, who we share it with, how long we keep it, how we protect it, and the rights you have when you use the Product or Service. Although Keystone Labs Ltd is established in the United Kingdom, the Product may be accessed by Users located in other jurisdictions. Where applicable data protection laws require additional rights or protections, we will comply with those mandatory legal requirements in addition to the protections described in this Privacy Notice.</p><h2 id="397a2f58-2778-81b4-8ae9-d7caee328598" class="" dir="auto">1.4 Definitions</h2><p id="397a2f58-2778-8174-ab29-ea71670798ab" class="" dir="auto">Capitalised terms used in this Privacy Notice have the meanings given in the Terms and Conditions, unless otherwise stated. &quot;Personal Data&quot; means any information relating to an identified or identifiable individual.</p><h1 id="397a2f58-2778-81cd-ad75-e87745564da3" class="" dir="auto"></h1><h1 id="397a2f58-2778-8105-9658-fccaa12faf09" class="" dir="auto">2. Personal Data We Collect</h1><h2 id="397a2f58-2778-814e-a105-ea15d1c119b1" class="" dir="auto">2.1 Information You Provide</h2><p id="397a2f58-2778-8101-94ca-cd00d6c8ca36" class="" dir="auto">We may collect information that you provide directly to us, including:</p><ul id="397a2f58-2778-815a-8967-dbb83e7a9a99" class="bulleted-list" dir="auto"><li style="list-style-type:disc">account information, such as your name, username, email address, date of birth, and login details;</li></ul><ul id="397a2f58-2778-81a5-a17a-c97788752a8f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">profile information, such as profile photographs, descriptions, preferences, and any information you choose to provide;</li></ul><ul id="397a2f58-2778-8100-9b5e-da2fad99be12" class="bulleted-list" dir="auto"><li style="list-style-type:disc">communications, including information you provide when you contact us by email, in-app messaging, phone, or social media; and</li></ul><ul id="397a2f58-2778-811d-9642-e16382563a65" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Content uploaded or submitted through the Product, including photographs and, where applicable, business-related information.</li></ul><h2 id="397a2f58-2778-8155-bf14-c005ceb5fccc" class="" dir="auto">2.2 Information Collected Automatically</h2><p id="397a2f58-2778-816f-8200-f41c4c29e300" class="" dir="auto">When you use the Product or Service, we may automatically collect technical and usage information, including:</p><ul id="397a2f58-2778-81bd-9f96-cad6574621aa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Device information, such as device type, operating system, browser type, software version, and device identifiers</li></ul><ul id="397a2f58-2778-8193-a256-dc0259d2dba8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Usage information, such as feature usage, booking activity, interaction data, time and frequency of use, and Product performance data</li></ul><ul id="397a2f58-2778-8123-9e4a-e34b0a9dd46d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Technical logs, including security, diagnostic, and error logs</li></ul><ul id="397a2f58-2778-8133-ae82-ed09092d9888" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Location information, where you choose to enable location services or where otherwise permitted by law; and</li></ul><ul id="397a2f58-2778-8194-a08e-c1ade9c27bbe" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cookie and tracking information, where permitted by law and subject to consent where required.</li></ul><h2 id="397a2f58-2778-8105-b9d1-dcaab6550865" class="" dir="auto">2.3 Professional Information</h2><p id="397a2f58-2778-8179-bb39-f09a1a34b8c2" class="" dir="auto">If you use the Product as a Professional, we may collect information relating to your salon, business, or professional profile, including location, opening hours, capacity, services, pricing, qualifications, availability, and other information you choose to provide.</p><p id="397a2f58-2778-8137-9b4b-f16031c91487" class="" dir="auto"><strong>2.4 Sources of Personal Data</strong></p><p id="397a2f58-2778-81a6-896b-f0c39d1b9c36" class="" dir="auto">We obtain Personal Data directly from you when you create an account, make a Booking, upload Content, communicate with us or otherwise use the Product.</p><p id="397a2f58-2778-8145-b9ad-d23fddf4c45e" class="" dir="auto">We may also collect Personal Data automatically through your use of the Product, including technical, device and usage information, where permitted by applicable law.</p><p id="397a2f58-2778-8149-a815-ebfe3cf75487" class="" dir="auto">Where necessary to facilitate Bookings or provide the Product, we may receive Personal Data from other Users, including Clients and Professionals, or from service providers acting on our behalf.</p><p id="397a2f58-2778-81fc-8d29-d0a04b84f44b" class="" dir="auto">Certain Personal Data is required in order to create an account, process Bookings, provide customer support, process payments or comply with legal obligations. If you choose not to provide information that is required, we may be unable to provide some or all of the Product or Service.</p><h2 id="397a2f58-2778-8186-a338-fab4e9e52341" class="" dir="auto">2.5 Information We Do Not Intentionally Collect</h2><p id="397a2f58-2778-812a-b662-e05c0f9ee862" class="" dir="auto">Except for Biometric Data processed for optional biometric-enabled features and any health-related information you voluntarily provide in connection with a requested service, we do not intentionally collect special category data such as information revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, sex life or sexual orientation.</p><h2 id="397a2f58-2778-8177-80a5-ce85b88f4a10" class="" dir="auto">2.6 Children&#x27;s Data</h2><h1 id="397a2f58-2778-8187-9726-e7d3070518ca" class="" dir="auto">The Product is intended for use by individuals aged 18 or over. Where a User is under the age of 18, Personal Data relating to that User will be processed only with the involvement of a parent or legal guardian where required by applicable law.</h1><h1 id="397a2f58-2778-8121-b883-fbe65b207303" class="" dir="auto">3. Biometric Data</h1><h2 id="397a2f58-2778-81e5-a365-d6aa464820e0" class="" dir="auto">3.1 What Biometric Data We Collect</h2><p id="397a2f58-2778-8147-b01e-e117e8689efe" class="" dir="auto">Certain optional features of the Product may require the processing of Biometric Data, including facial images and facial embeddings generated from those images. Biometric-enabled features are optional. Where the User is under the age of 18, any consent required for biometric processing must be provided or authorized by a parent or legal guardian where required by applicable law.</p><h2 id="397a2f58-2778-81c1-8473-ebcdbd149e29" class="" dir="auto">3.2 Why We Collect It</h2><p id="397a2f58-2778-8151-9219-ef8c3c7a4a4a" class="" dir="auto">Biometric Data is processed solely for the purposes of providing the relevant optional feature, such as hairstyle visualisation, facial analysis or secure authentication where available.</p><p id="397a2f58-2778-81b8-8344-e96b07db6eb7" class="" dir="auto"><strong>3.3 Health information</strong></p><p id="397a2f58-2778-81a2-a33e-e52fa45446dd" class="" dir="auto">You may voluntarily provide health-related information, including allergies, skin or scalp conditions, medical treatments, or other information relevant to the services requested. Such information is processed only where necessary to provide the requested services and, where required by applicable law, based on your explicit consent. Access to such information is limited to authorized personnel and relevant Professionals involved in providing the requested services.</p><p id="397a2f58-2778-8163-9a1c-feaddb17607a" class="" dir="auto">Where health-related information constitutes special category data, we rely on your explicit consent under Article 9 of the UK GDPR unless another lawful condition applies</p><h2 id="397a2f58-2778-817e-a0e2-f7cba95f9473" class="" dir="auto">3.4 Explicit Consent</h2><p id="397a2f58-2778-81f0-81db-d4fda150b034" class="" dir="auto">We will collect and process Biometric Data only where you have provided separate, explicit, informed and freely given consent for the specific feature concerned. The use of biometric features is optional and is not required to access the core functionality of the Product.</p><p id="397a2f58-2778-8178-a269-e7323234cb0e" class="" dir="auto">Where Biometric Data is processed for uniquely identifying or authenticating you, such as secure facial authentication, Keystone Labs Ltd processes that data as special category personal data under Article 9 of the UK GDPR and relies on your explicit consent as the applicable lawful condition for processing.</p><p id="397a2f58-2778-8148-b108-f7cd7a47a217" class="" dir="auto">Some optional image-analysis features, such as hairstyle visualization, may analyze facial characteristics without being used to uniquely identify you. Where such processing nevertheless constitutes Biometric Data under applicable law, we will obtain your explicit consent before processing.</p><h2 id="397a2f58-2778-81b8-8eca-df134e685cf6" class="" dir="auto">3.5 Information Provided Before Processing</h2><p id="397a2f58-2778-8180-a74e-d303b299dc86" class="" dir="auto">Before biometric processing takes place, we will explain the categories of Biometric Data collected, the specific purpose of the processing, whether processing takes place on your device, on our servers or through an authorised service provider, whether any third-party processor is involved, the general retention period applicable to the Biometric Data and how you may withdraw your consent.</p><h2 id="397a2f58-2778-812c-bd10-ca8326c371ee" class="" dir="auto">3.6 Storage and Third-Party Processing</h2><p id="397a2f58-2778-8127-be41-c2b9b2478e5f" class="" dir="auto">Biometric processing may take place on your device, on Keystone Labs Ltd servers, or through carefully selected third-party service providers acting on our behalf, depending on the functionality used. We take reasonable steps to ensure that all third-party providers processing biometric data are contractually required to protect such data in accordance with applicable data protection law and to process it solely on our documented instructions</p><h2 id="397a2f58-2778-81ae-b5ae-cf1da5d88fc3" class="" dir="auto">Where biometric data is processed by third-party service providers, such providers act solely as data processors on behalf of Keystone Labs Ltd. These providers may include cloud hosting providers and biometric technology providers. We require all such providers to implement appropriate technical and organizational security measures and to process biometric data only for the purposes authorized by Keystone Labs Ltd.</h2><h2 id="397a2f58-2778-81fe-9a15-e6749e6f26a0" class="" dir="auto">3.7 Security of Biometric Data</h2><p id="397a2f58-2778-81e3-821e-f422eb7e223f" class="" dir="auto">We implement appropriate technical and organisational measures to protect Biometric Data, given its sensitive nature. These measures may include, where appropriate, encryption in transit and encryption at rest. We monitor system-level security events through appropriate logging and monitoring processes.</p><h2 id="397a2f58-2778-8183-9ce9-c7649e93031e" class="" dir="auto">3.8 Withdrawal of Consent</h2><p id="397a2f58-2778-81fd-ad84-d60d1ce32fbb" class="" dir="auto">You may withdraw your consent to biometric processing at any time through your account settings or by contacting us. Withdrawal of consent will not affect the lawfulness of processing carried out before withdrawal, but it will disable the relevant biometric feature.</p><h2 id="397a2f58-2778-8166-a07d-e146c87cfbdf" class="" dir="auto">3.9 Deletion of Biometric Data</h2><p id="397a2f58-2778-8199-949b-f67559cdcf95" class="" dir="auto">Unless we are required by law to retain it, your Biometric Data will be deleted or permanently de-identified without undue delay following withdrawal of consent or when the relevant biometric feature is disabled, in accordance with our retention and deletion practices.</p><p id="397a2f58-2778-815a-83af-ed4aed252a4c" class="" dir="auto">For privacy-related enquiries, please contact us at: support@yourlook.app</p><h1 id="397a2f58-2778-81de-84b9-e37d355b8e14" class="" dir="auto"></h1><h1 id="397a2f58-2778-813e-9a25-c8a39a7096a3" class="" dir="auto">4. How We Use Your Personal Data</h1><p id="397a2f58-2778-8197-bf60-d15bbc40ac03" class="" dir="auto">We use Personal Data for the following purposes:</p><ul id="397a2f58-2778-81d5-ac49-d4017d0aec45" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to provide, operate, maintain and improve the Product and Service;</li></ul><ul id="397a2f58-2778-81fd-939b-ff2313627ab7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to create, manage and secure user accounts;</li></ul><ul id="397a2f58-2778-81a2-b771-f2f00941c9de" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to manage customer support;</li></ul><ul id="397a2f58-2778-811a-900f-f7f3fdcf8a71" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to personalise content, recommendations and user experience;</li></ul><ul id="397a2f58-2778-81f7-95d3-f581bfd9afab" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to provide optional AI-assisted or biometric-enabled features where consent is required and obtained;</li></ul><ul id="397a2f58-2778-81df-a129-d8576e6d1d98" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to maintain safety, security, integrity and fraud prevention;</li></ul><ul id="397a2f58-2778-810b-bd74-c70091b571cb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to analyse usage, performance and engagement;</li></ul><ul id="397a2f58-2778-81dd-be40-e6f8670100a1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to communicate with you about updates, service notices and support matters; and</li></ul><ul id="397a2f58-2778-813e-85f7-f0df918138c9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to comply with legal obligations and respond to lawful requests from competent authorities.</li></ul><h1 id="397a2f58-2778-815e-8344-dc65f1214a50" class="" dir="auto"></h1><h1 id="397a2f58-2778-817e-9bdb-f4605537f09d" class="" dir="auto">5. AI Features</h1><h2 id="397a2f58-2778-81ab-9671-efeb4b0cf1be" class="" dir="auto">We do not currently use AI-assisted features, but may introduce them in the future, subject to updated notices and consent where required.</h2><h1 id="397a2f58-2778-8139-b5c6-c0c63f0c9b19" class="" dir="auto"></h1><h1 id="397a2f58-2778-8111-a333-d843236d4621" class="" dir="auto">6. Legal Bases for Processing</h1><p id="397a2f58-2778-8125-b9e3-d4fd802f70e7" class="" dir="auto">Depending on the purpose for which we process your Personal Data, we rely on one or more of the following lawful bases under the UK GDPR.</p><table id="397a2f58-2778-8173-829a-d6528a9d5315" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="397a2f58-2778-8163-969e-e03b86c4a16c" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header"><strong>Purpose of processing</strong></th><th id="RQTQ" class="simple-table-header-color simple-table-header"><strong>Personal Data</strong></th><th id="n~c@" class="simple-table-header-color simple-table-header"><strong>Lawful Basis</strong></th></tr></thead><tbody><tr id="397a2f58-2778-81cc-badd-c78d00aa0bd5" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Creating and managing your account</th><td id="RQTQ" class="">Account details, profile information</td><td id="n~c@" class="">Performance of a contract</td></tr><tr id="397a2f58-2778-8151-b92a-fe92e32d2ffc" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Managing Bookings</th><td id="RQTQ" class="">Booking information, communications</td><td id="n~c@" class="">Performance of a contract</td></tr><tr id="397a2f58-2778-81b0-9e6e-c3327efbac19" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Customer support</th><td id="RQTQ" class="">Communications</td><td id="n~c@" class="">Performance of a contract and legitimate interests</td></tr><tr id="397a2f58-2778-8142-bc86-e26f63ccb2bd" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Fraud prevention and platform security</th><td id="RQTQ" class="">Account, device and technical information</td><td id="n~c@" class="">Legitimate interests</td></tr><tr id="397a2f58-2778-81b2-a37b-dfe89c64e579" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Product analytics and service improvement</th><td id="RQTQ" class="">Usage data, technical logs</td><td id="n~c@" class="">Legitimate interests</td></tr><tr id="397a2f58-2778-8122-b476-c52c335ef43e" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Personalized recommendations</th><td id="RQTQ" class="">Profile information, preferences</td><td id="n~c@" class="">Performance of a contract and legitimate interests</td></tr><tr id="397a2f58-2778-8198-8fa9-f354dfb8ead2" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Biometric identification or authentication</th><td id="RQTQ" class="">Facial images and facial embeddings</td><td id="n~c@" class="">Explicit consent under Article 9 UK GDPR</td></tr><tr id="397a2f58-2778-812b-8b66-e3de267ce38d" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Marketing communications</th><td id="RQTQ" class="">Contact details</td><td id="n~c@" class="">Consent (or another lawful basis where permitted by law)</td></tr><tr id="397a2f58-2778-8154-af89-fee8a3f07cf5" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Non-essential cookies</th><td id="RQTQ" class="">Device and browser information</td><td id="n~c@" class="">Consent</td></tr><tr id="397a2f58-2778-8185-a58b-d3f471dc8d3b" dir="ltr"><th id="MmDL" class="simple-table-header-color simple-table-header">Compliance with legal obligations</th><td id="RQTQ" class="">Any Personal Data required by law</td><td id="n~c@" class="">Legal obligation</td></tr></tbody></table><p id="397a2f58-2778-81da-9801-d4461999ecbe" class="" dir="auto">Where we rely on our legitimate interests, these include operating, securing, improving and developing the Product, preventing fraud, maintaining network and information security, and supporting our day-to-day business operations. Where we rely on consent, you may withdraw that consent at any time.</p><h1 id="397a2f58-2778-8113-9a98-fe770e675157" class="" dir="auto"></h1><h1 id="397a2f58-2778-8145-835e-d14f9f9c4ecc" class="" dir="auto">7. Sharing Your Information</h1><h2 id="397a2f58-2778-81b6-8133-ce935556ed20" class="" dir="auto">7.1 Controller and Processor Roles</h2><p id="397a2f58-2778-813f-a0ff-ecf48a340cd5" class="" dir="auto">Keystone Labs Ltd is the controller of the Personal Data processed through the Product for the purposes described in this Privacy Notice.</p><p id="397a2f58-2778-8134-b21e-e7ba812d6d90" class="" dir="auto">Where we engage third-party service providers to process Personal Data on our behalf, those providers act as data processors and process Personal Data only under our documented instructions and in accordance with applicable data protection law.</p><p id="397a2f58-2778-81d1-adc4-e655305f02f9" class="" dir="auto">Where Personal Data is shared with a Professional for the purpose of providing a requested service or fulfilling a Booking, that Professional may become an independent controller of the Personal Data they receive. In such circumstances, the Professional is independently responsible for complying with applicable data protection law in relation to that Personal Data.</p><h2 id="397a2f58-2778-81ab-9545-ea3a4247d322" class="" dir="auto">7.2 Service Providers</h2><h2 id="397a2f58-2778-81cd-90f5-c35bc179a5b8" class="" dir="auto">We may share Personal Data with carefully selected service providers assisting us with cloud hosting, analytics, customer support, communications, security and technical infrastructure where necessary to provide the Product. These providers process Personal Data on our behalf under appropriate contractual safeguards and only in accordance with our documented instructions.</h2><h2 id="397a2f58-2778-8197-8259-cb8371a0d0a5" class="" dir="auto">7.3 Legal Authorities</h2><p id="397a2f58-2778-81c3-8cd2-ccb6a96fb48a" class="" dir="auto">We may share Personal Data with legal, regulatory or law-enforcement authorities where required by law or where necessary to protect rights, safety, security or the integrity of the Product and Service.</p><h2 id="397a2f58-2778-8186-ba33-d5ae9db430df" class="" dir="auto">7.4 Business Transfers</h2><p id="397a2f58-2778-8101-a7c0-d156eb59a857" class="" dir="auto">If Keystone Labs Ltd is involved in a merger, acquisition, financing, corporate restructuring or sale of assets, Personal Data may be disclosed or transferred as part of that transaction, subject to applicable law.</p><h1 id="397a2f58-2778-811f-987b-dcf2c67b84bf" class="" dir="auto"></h1><h1 id="397a2f58-2778-8120-adce-ebfe6f35d8c1" class="" dir="auto">8. International Transfers</h1><p id="397a2f58-2778-81f3-92ad-f14eff823725" class="" dir="auto">We aim to store and process Personal Data within the United Kingdom where reasonably practicable. However, some of our service providers may process Personal Data outside the United Kingdom, including where they provide hosting, analytics, customer support, communications, security, or technical infrastructure services.</p><p id="397a2f58-2778-81fb-be1a-d0495bb0cc11" class="" dir="auto">Where Personal Data is transferred outside the United Kingdom, we will ensure that the transfer is made in accordance with applicable data protection law. This may include relying on UK adequacy regulations, the International Data Transfer Agreement, the UK Addendum to the European Commission’s Standard Contractual Clauses, or another lawful transfer mechanism.</p><p id="397a2f58-2778-81ba-8d55-d3244af6b6ab" class="" dir="auto">We will take reasonable steps to ensure that third-party providers processing Personal Data on our behalf are subject to appropriate contractual, technical and organizational safeguards.</p><h1 id="397a2f58-2778-81c0-a4ba-e02ec6c640b5" class="" dir="auto">9. Data Retention</h1><h2 id="397a2f58-2778-8133-b466-e6404d7c066b" class="" dir="auto">9.1 General Principles</h2><p id="397a2f58-2778-8111-8f0a-ff3b4270e8aa" class="" dir="auto">We retain Personal Data only for as long as necessary to provide the Product and Service, comply with legal obligations, resolve disputes, enforce our agreements, prevent fraud and protect our rights and the rights of others. Retention periods vary depending on the type of information collected. Account information is retained until the account is deleted, unless a longer retention period is required by law. Financial records are retained for the period required by applicable accounting and tax legislation. Biometric Data is retained only for as long as the relevant feature remains enabled, unless otherwise required by law.</p><h2 id="397a2f58-2778-8133-b556-e3d3133412db" class="" dir="auto">9.2 Retention of Different Categories of Data</h2><table id="397a2f58-2778-812b-b05c-c48ce1bd818b" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="397a2f58-2778-81f5-9a72-edc87bda7352" dir="ltr"><th id="X&lt;SL" class="simple-table-header-color simple-table-header"><strong>Data</strong></th><th id="tKp|" class="simple-table-header-color simple-table-header"><strong>Retention</strong></th></tr></thead><tbody><tr id="397a2f58-2778-81eb-a0b1-f8dd2665ab7d" dir="ltr"><th id="X&lt;SL" class="simple-table-header-color simple-table-header">Account</th><td id="tKp|" class="">Until deletion</td></tr><tr id="397a2f58-2778-81ad-8ead-d4dd1411659e" dir="ltr"><th id="X&lt;SL" class="simple-table-header-color simple-table-header">Booking</th><td id="tKp|" class="">Up to 6 years</td></tr><tr id="397a2f58-2778-8152-8202-c07175f5a33a" dir="ltr"><th id="X&lt;SL" class="simple-table-header-color simple-table-header">Support</th><td id="tKp|" class="">Up to 3 years</td></tr><tr id="397a2f58-2778-81d7-be97-d1f39aa9fd81" dir="ltr"><th id="X&lt;SL" class="simple-table-header-color simple-table-header">Biometric</th><td id="tKp|" class="">Until consent withdrawn</td></tr></tbody></table><p id="397a2f58-2778-81d7-bab9-d674a673a3db" class="" dir="auto">Data records are generally retained where reasonably necessary for accounting, dispute resolution, fraud prevention, legal claims, regulatory compliance or the establishment, exercise or defense of legal rights.</p><h2 id="397a2f58-2778-81de-8619-faea3edc0f62" class="" dir="auto">9.3 Deletion and Anonymisation</h2><p id="397a2f58-2778-81a6-b9ab-c82984c47cf7" class="" dir="auto">Where Personal Data is no longer required, it will be deleted or anonymised in accordance with our data-retention practices and applicable law. Information that has been anonymised or aggregated so that it no longer identifies an individual may be used for statistical, analytical or Product-improvement purposes.</p><h1 id="397a2f58-2778-8150-a8fe-c3433d716e61" class="" dir="auto"></h1><h1 id="397a2f58-2778-815a-8d7b-cdc87ba05f7b" class="" dir="auto">10. Security</h1><h2 id="397a2f58-2778-81d6-8cba-c958d0b5cf6e" class="" dir="auto">10.1 Security Measures</h2><p id="397a2f58-2778-8119-8699-eb94de96b6ee" class="" dir="auto">Depending on the nature, scope, context, and purposes of the processing, and the risks to individuals&#x27; rights and freedoms, we implement appropriate technical and organizational measures designed to protect Personal Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure, or access.</p><p id="397a2f58-2778-81bc-ba30-f315003c6333" class="" dir="auto"><strong>Technical measures</strong></p><ul id="397a2f58-2778-8119-bb7e-f12b16f0883d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Secure cloud infrastructure and hosting solutions designed to protect the confidentiality, integrity, and availability of Personal Data.</li></ul><ul id="397a2f58-2778-81fb-9f86-caab5a0a4d43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Monitoring and logging of system-level security and technical events to support the detection, investigation, and response to security incidents.</li></ul><ul id="397a2f58-2778-81b7-824f-ddbd34619c58" class="bulleted-list" dir="auto"><li style="list-style-type:disc">encryption of Personal Data during storage (&quot;at rest&quot;) and transmission (&quot;in transit&quot;), where appropriate, using appropriate cryptographic safeguards; and</li></ul><ul id="397a2f58-2778-8120-bff9-e60569c8658d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">role-based access controls, authentication mechanisms, and database-level security measures designed to restrict access to Personal Data to authorized personnel with a legitimate business need.</li></ul><p id="397a2f58-2778-81f6-aa7d-dff0163b08ec" class="" dir="auto"><strong>Organizational measures</strong></p><ul id="397a2f58-2778-81bf-8073-c898b0e72fcc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">restricting access to Personal Data on a need-to-know basis.</li></ul><ul id="397a2f58-2778-8180-ba50-c5b6d1e49adf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">confidentiality obligations for personnel with access to Personal Data.</li></ul><ul id="397a2f58-2778-810e-8c63-c9aaa15d363c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">internal policies and procedures governing the handling of Personal Data; and</li></ul><ul id="397a2f58-2778-81ee-acff-fc675e9c4f79" class="bulleted-list" dir="auto"><li style="list-style-type:disc">periodic review of our security practices.</li></ul><p id="397a2f58-2778-81d6-b701-ddfdb6e4badf" class="" dir="auto">The security measures we implement may evolve to reflect changes in technology, operational requirements, and legal obligations.</p><h2 id="397a2f58-2778-81c4-ab1f-ea0ad1ca1251" class="" dir="auto">10.2 Security Limitations</h2><p id="397a2f58-2778-815b-9c08-e1a4d9de8973" class="" dir="auto">While we take reasonable steps to protect Personal Data, no method of electronic transmission, storage or processing can be guaranteed to be completely secure. Accordingly, we cannot guarantee that Personal Data will never be accessed, disclosed, altered or destroyed by unauthorized third parties.</p><h2 id="397a2f58-2778-8158-b59a-c07f8d938f8b" class="" dir="auto">10.3 Personal Data Breaches</h2><p id="397a2f58-2778-81e7-bd74-e4f93a5cfbe7" class="" dir="auto">If a Personal Data breach occurs, we will investigate the incident and comply with any applicable legal obligations, including notifying the Information Commissioner&#x27;s Office and affected individuals where required by law.</p><h1 id="397a2f58-2778-81e2-a035-c760576e154e" class="" dir="auto"></h1><h1 id="397a2f58-2778-81a9-8253-e3b0bdb6ad3a" class="" dir="auto">11. Your Rights</h1><p id="397a2f58-2778-81da-99c2-e3527e6e8b18" class="" dir="auto">Subject to applicable law, you may have the following rights in relation to your Personal Data:</p><ul id="397a2f58-2778-819e-bdb2-c73a3dbbd93c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right of access to your Personal Data</li></ul><ul id="397a2f58-2778-8136-8152-ec3ce0456440" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to rectification of inaccurate or incomplete Personal Data</li></ul><ul id="397a2f58-2778-813d-9c42-dbedf53a5da8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to erasure of your Personal Data in certain circumstances</li></ul><ul id="397a2f58-2778-814b-a287-fef72d909515" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to restriction of processing in certain circumstances</li></ul><ul id="397a2f58-2778-81a3-8847-f6a2b31b9616" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to object to processing based on our legitimate interests</li></ul><ul id="397a2f58-2778-811f-a3e2-d75162ecd8b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to data portability, where applicable</li></ul><ul id="397a2f58-2778-819f-99f4-d1421e1a3ffa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to withdraw consent at any time where processing is based on consent</li></ul><ul id="397a2f58-2778-8147-be72-f6a932f96614" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The right to lodge a complaint with the Information Commissioner&#x27;s Office or another competent supervisory authority</li></ul><h1 id="397a2f58-2778-8105-9694-e75d6128d571" class="" dir="auto">12. Exercising Your Rights</h1><h2 id="397a2f58-2778-81bf-aedf-e4b84422ebe1" class="" dir="auto">12.1 How to Contact Us</h2><p id="397a2f58-2778-8103-9ba8-e2fddf0bf036" class="" dir="auto">If you wish to exercise any of your rights under applicable data protection law, you may contact us using the contact details provided in this Privacy Notice.</p><h2 id="397a2f58-2778-81a2-81e8-e23bcdc0fa70" class="" dir="auto">12.2 Identity Verification</h2><p id="397a2f58-2778-81a8-ba78-c27895a6a32b" class="" dir="auto">We may request information necessary to verify your identity before responding to your request.</p><h2 id="397a2f58-2778-8104-9e80-d7caae3388b8" class="" dir="auto">12.3 Response Times</h2><p id="397a2f58-2778-81ab-898f-c10411afbe16" class="" dir="auto">Unless an extension is permitted by applicable law, we will normally respond within one month of receiving a valid request.</p><h2 id="397a2f58-2778-8133-afcd-ea2215a0f81a" class="" dir="auto">12.4 Fees</h2><p id="397a2f58-2778-81ac-9b0f-f554f33926cf" class="" dir="auto">Requests are generally free of charge, although we may charge a reasonable fee or refuse a request where permitted by law, including where a request is manifestly unfounded or excessive.</p><h1 id="397a2f58-2778-81ed-b221-cbba0592ebb3" class="" dir="auto">13. Changes to this Privacy Notice</h1><p id="397a2f58-2778-8110-8c29-fffc48aea5b3" class="" dir="auto">We may update this Privacy Notice from time to time to reflect changes in our practices, legal requirements or operational needs. Where changes are material, we will provide notice through the Product or by other appropriate means before the changes take effect, where required by law.</p><h1 id="397a2f58-2778-81f0-b07a-c767e88595f1" class="" dir="auto"></h1><h1 id="397a2f58-2778-8188-a3fb-c4791dc28c83" class="" dir="auto">14. Contact Information</h1><p id="397a2f58-2778-8171-b587-def48fa6b6df" class="" dir="auto">Keystone Labs Ltd has not appointed a Data Protection Officer at this stage. Privacy-related enquiries should be sent to <a href="mailto:support@yourlook.app">support@yourlook.app</a></p><p id="397a2f58-2778-81c6-b0af-c424f80c9ec2" class="" dir="auto">You also have the right to lodge a complaint with the Information Commissioner&#x27;s Office. We would, however, appreciate the opportunity to address your concerns before you contact the ICO. Our ICO registration number is ZC187730.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
