@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>T&amp;C</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="397a2f58-2778-800f-b9dd-c68f67cb5b1e" class="page sans"><header><h1 class="page-title" dir="auto">T&amp;C</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="397a2f58-2778-81cd-af9d-f98f82b3b7c3" class="" dir="auto">Last updated: 28 June 2026</p><p id="397a2f58-2778-8149-8ceb-d3235256f637" class="" dir="auto">Keystone Labs Ltd</p><p id="397a2f58-2778-8128-86e0-c28f0c50c32a" class="" dir="auto">CRN: SC860392 // ICO: ZC187730</p><p id="397a2f58-2778-81e2-b56a-e616a7ee1237" class="" dir="auto">1533 Shettleston Road, Glasgow, Scotland, G32 9AS</p><h1 id="397a2f58-2778-8155-b3c9-ecaa9407ae81" class="" dir="auto">1. Acceptance of the Terms</h1><h2 id="397a2f58-2778-81bb-9b64-ebaabdda8cdc" class="" dir="auto">1.1 Acceptance</h2><p id="397a2f58-2778-810f-9d89-ca52a22a24ad" class="" dir="auto">Welcome to YourLook (&quot;YourLook&quot;, &quot;we&quot;, &quot;our&quot; or &quot;us&quot;). These Terms and Conditions (the &quot;Terms&quot;) govern your access to and use of the Product and the Service provided by Keystone Labs Ltd.</p><p id="397a2f58-2778-8177-8dff-ca1cfe060632" class="" dir="auto">By accessing or using the Product or Service, you agree to be bound by these Terms. If you do not agree to these Terms, you must not access or use the Product or Service.</p><p id="397a2f58-2778-810e-bdf2-d3f39bdfb742" class="" dir="auto">Additional terms, policies, or feature-specific conditions may apply to certain features, products, or services. Where those additional terms apply, they form part of these Terms unless expressly stated otherwise.</p><h2 id="397a2f58-2778-81b4-8831-ca4a01fa0e9b" class="" dir="auto">1.2 Changes to the Terms</h2><p id="397a2f58-2778-810b-ac1d-d36b31a45495" class="" dir="auto">We may update these Terms from time to time. Where required by applicable law, or where a change is material, we will provide reasonable notice before the updated Terms take effect. Your continued use of the Product or Service after the updated Terms become effective will constitute your acceptance of the revised Terms.</p><p id="397a2f58-2778-81be-b0ab-d777fa06b198" class="" dir="auto">Where a change materially affects your rights or obligations, we will provide reasonable advance notice where required by law. If you do not agree to the updated Terms, you may stop using the Product and close your account before the updated Terms take effect. The updated Terms will not affect any rights or obligations that arose before the effective date of the change unless expressly required by law.</p><h2 id="397a2f58-2778-815a-ba65-cff53140bd0c" class="" dir="auto">1.3 Additional Policies</h2><p id="397a2f58-2778-812c-b69d-e03d5e8121e7" class="" dir="auto">These Terms should be read together with our <strong>Privacy Notice</strong>, which forms part of the legal framework governing your use of the Product and explains how we process Personal Data and use cookies. These are accessible through the Settings of your app, in the “Privacy and Legal” tabs.</p><h1 id="397a2f58-2778-81f0-9807-f32d9d4e5083" class="" dir="auto">2. Definitions</h1><table id="397a2f58-2778-8122-93ba-d85ca2cff96c" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="397a2f58-2778-81a8-9b74-c040a819f678" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header"><strong>Term</strong></th><th id="&gt;Qtn" class="simple-table-header-color simple-table-header"><strong>Meaning</strong></th></tr></thead><tbody><tr id="397a2f58-2778-81b9-958d-f748f1b37d5d" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;AI Processing&quot;</th><td id="&gt;Qtn" class="">The automated analysis or generation of outputs using machine-learning models, artificial intelligence systems or similar technologies.</td></tr><tr id="397a2f58-2778-8195-a2fa-ffc79dea58d2" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Biometric Data&quot;</th><td id="&gt;Qtn" class="">Personal Data resulting from specific technical processing relating to the physical, physiological or behavioural characteristics of a person, including facial images or facial embeddings where such data is used for identification, authentication, facial analysis or other biometric-enabled features.</td></tr><tr id="397a2f58-2778-812a-8d20-ffb34355d64e" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Booking&quot;</th><td id="&gt;Qtn" class="">A booking, appointment or other arrangement made through the Product between a Client and a Professional.</td></tr><tr id="397a2f58-2778-816c-af20-efae277617c7" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Client&quot;</th><td id="&gt;Qtn" class="">A User who seeks to receive services through the Product.</td></tr><tr id="397a2f58-2778-8151-8e03-e2b6ea854280" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Content&quot;</th><td id="&gt;Qtn" class="">Any information, data, text, images, photographs, reviews, business information or other material uploaded, submitted, generated, displayed or transmitted through the Product or Service.</td></tr><tr id="397a2f58-2778-8170-a53b-c0112c40e2e7" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Keystone Labs&quot;, &quot;we&quot;, &quot;our&quot; or &quot;us&quot;</th><td id="&gt;Qtn" class="">Keystone Labs Ltd, the owner and operator of the Product and Service.</td></tr><tr id="397a2f58-2778-81d5-82b2-ff7424f84a43" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Personal Data&quot;</th><td id="&gt;Qtn" class="">Meaning given to it under applicable data protection law.</td></tr><tr id="397a2f58-2778-812d-9c06-f2f0cce39bb4" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Product&quot;</th><td id="&gt;Qtn" class="">YourLook platform, including the mobile application, website and any related digital interface or feature made available by Keystone Labs Ltd.</td></tr><tr id="397a2f58-2778-813a-9e1a-ded5d2453b85" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Professional&quot;</th><td id="&gt;Qtn" class="">User who provides, offers or is available to provide services through the Product, including barbers, hairdressers, stylists, salons or other beauty-service providers.</td></tr><tr id="397a2f58-2778-8191-9e35-d7fd36cea8fe" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;Service&quot;</th><td id="&gt;Qtn" class="">All services, features, tools, functionality and content made available through or in connection with the Product.</td></tr><tr id="397a2f58-2778-8121-9fa9-c4f9ea12973f" dir="ltr"><th id="Fkyc" class="simple-table-header-color simple-table-header">&quot;User&quot; or &quot;you&quot;</th><td id="&gt;Qtn" class="">Any individual who accesses or uses the Product or Service, including Clients and Professionals.</td></tr></tbody></table><h1 id="397a2f58-2778-8129-8284-ca8020624c0e" class="" dir="auto"></h1><h2 id="397a2f58-2778-818f-a8a0-f29084a9f280" class="" dir="auto">2.1 Interpretation</h2><p id="397a2f58-2778-81e3-9279-d4effb17c832" class="" dir="auto">References to legislation include any amendments or replacements.</p><p id="397a2f58-2778-8164-bf22-e79640674cff" class="" dir="auto">Headings are for convenience only and do not affect interpretation.</p><p id="397a2f58-2778-814c-a2b4-e428130234de" class="" dir="auto">References to the singular include the plural and vice versa.</p><p id="397a2f58-2778-8170-b3be-cfdc982a0257" class="" dir="auto">References to writing include electronic communications.</p><h1 id="397a2f58-2778-81d8-9579-ff0079b14251" class="" dir="auto"></h1><h1 id="397a2f58-2778-8132-a248-c1947dd6044f" class="" dir="auto">3. Eligibility and Accounts</h1><h2 id="397a2f58-2778-819d-8422-fa28b37a513c" class="" dir="auto">3.1 Eligibility</h2><p id="397a2f58-2778-8130-8e7e-db46cb550a7a" class="" dir="auto">The Product is intended for use by individuals aged 18 or over. Where a User is under 18, the parent or legal guardian is responsible for ensuring compliance with these Terms and for any Bookings or transactions made on the minor&#x27;s behalf. Users are responsible for ensuring that any information they provide regarding their age and, where applicable, parental or legal guardian consent is complete, accurate and truthful. Keystone Labs Ltd is entitled to rely on such information unless it has reasonable grounds to believe that it is inaccurate or misleading. Where a User falsely represents that they are eligible to use the Product or that the required parental or legal guardian consent has been obtained, Keystone Labs Ltd shall not be liable for any consequences arising directly from that false representation, except to the extent that such liability cannot lawfully be excluded or limited.</p><h2 id="397a2f58-2778-81ad-a5cd-e689369643a7" class="" dir="auto">3.2 Account Registration</h2><p id="397a2f58-2778-8136-9dfd-fbd6f4138910" class="" dir="auto">To access certain features of the Product or Service, you may be required to create an account and provide specific information. You agree to provide accurate, complete, and current information and to keep that information updated.</p><h2 id="397a2f58-2778-81c3-a5b5-edd9dabe6313" class="" dir="auto">3.3 Account Security</h2><p id="397a2f58-2778-810b-86af-c83c6ee77ed0" class="" dir="auto">You are responsible for safeguarding your login credentials and for all activities that occur under your account. You must notify us promptly if you become aware of any unauthorised access to, or use of, your account.</p><h2 id="397a2f58-2778-816f-bace-edeb0f5f9038" class="" dir="auto">3.4 Closing Your Account</h2><p id="397a2f58-2778-81ce-b282-c4d2af5863d7" class="" dir="auto">You may stop using the Product or Service at any time. Account closure may be requested through the Product or by emailing us at <a href="mailto:support@yourlook.app"><span style="border-bottom:0.05em solid">support@yourlook.app</span></a>. Account closure does not affect any rights, obligations, payments, or liabilities that arose before the account was closed.</p><h1 id="397a2f58-2778-8136-b261-cbea2567c4e3" class="" dir="auto"></h1><h1 id="397a2f58-2778-8143-9e9e-dd4551cdcc7c" class="" dir="auto">4. Description of the Product</h1><h2 id="397a2f58-2778-816c-9af0-cbb9e005decd" class="" dir="auto">4.1 Nature of the Product</h2><p id="397a2f58-2778-8104-9c38-d7558f0bb9e2" class="" dir="auto">The Product is a technology platform designed to connect Clients with Professionals and to provide related digital tools, including, communication, profile, recommendation, and visualisation features.</p><h2 id="397a2f58-2778-81f4-87f9-fea4d21e6e95" class="" dir="auto">4.2 Marketplace Services</h2><p id="397a2f58-2778-812e-a5e9-d2f8a5411784" class="" dir="auto">The Product acts solely as a platform connecting Clients and Professionals. Unless expressly stated otherwise, Keystone Labs Ltd does not itself provide hairdressing, barbering, styling or beauty services. Any contract for those services is entered into directly between the Client and the relevant Professional. However, we are responsible for operating the Product with reasonable care and skill. Where we become aware of credible concerns about a Professional, we may take reasonable steps, including restricting, suspending, or removing their profile, but we do not guarantee that all information provided by Professionals or Users is accurate, complete, or up to date</p><p id="397a2f58-2778-81e1-a108-c2effbb1ecaf" class="" dir="auto">Nothing in these Terms excludes or limits any responsibility Keystone Labs Ltd may have to you under applicable consumer protection law.</p><h2 id="397a2f58-2778-8159-8ccc-ec4053f97208" class="" dir="auto">4.3 Service Availability</h2><p id="397a2f58-2778-81ee-b450-cc17a006336e" class="" dir="auto">We aim to make the Product available on a continuous basis, but do not guarantee uninterrupted, secure, or error-free operation. We may suspend, restrict, or temporarily interrupt access to the Product or Service for maintenance, updates, security reasons, or circumstances beyond our reasonable control.</p><h2 id="397a2f58-2778-8170-abc3-c41d6eb5c8fd" class="" dir="auto">4.4 Beta Features</h2><p id="397a2f58-2778-8102-8fdf-d91799ab2d12" class="" dir="auto">We may, from time to time, offer experimental or beta features. Such features are provided on an &quot;as available&quot; basis, may be modified or withdrawn at any time, and may be subject to additional terms.</p><h1 id="397a2f58-2778-818c-85d2-c10e934b73e4" class="" dir="auto"></h1><h1 id="397a2f58-2778-81b7-8acf-e4d3f30df960" class="" dir="auto">5. User Obligations</h1><h2 id="397a2f58-2778-8103-a4e6-fab9f65e1ab1" class="" dir="auto">5.1 Acceptable Use</h2><p id="397a2f58-2778-81dd-a9f4-d066a5999e9d" class="" dir="auto">You agree to use the Product and Service only in accordance with these Terms and applicable law. You must not:</p><ul id="397a2f58-2778-81d1-8f7c-f79cff6ccbab" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Interfere with or disrupt the operation, integrity, or security of the Product</li></ul><ul id="397a2f58-2778-8139-9727-ca874de9182a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Access or attempt to access accounts, systems, or data without authorization</li></ul><ul id="397a2f58-2778-8100-9ee4-fb257ca7f197" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Use the Product to harass, abuse, impersonate, mislead, or harm others</li></ul><ul id="397a2f58-2778-8165-a6ce-c940c98beeb4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">upload, share, or transmit unlawful, harmful, deceptive, infringing, offensive, or otherwise inappropriate Content</li></ul><ul id="397a2f58-2778-81b0-b213-fdab71e41e0d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">use automated means, including bots, scrapers, or similar technologies, without our prior written authorization</li></ul><ul id="397a2f58-2778-817f-b95f-e36905cb1b61" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Use the Product for any fraudulent, unlawful, or unauthorised purpose.</li></ul><h2 id="397a2f58-2778-818d-bac7-c0b580d2b823" class="" dir="auto">5.2 User Content</h2><p id="397a2f58-2778-81cb-bbb5-ec081d668aa9" class="" dir="auto">You are solely responsible for all Content that you upload, submit, or transmit through the Product. You represent and warrant that your Content is accurate, not misleading, complies with applicable law, and does not infringe the rights of any third party.</p><h2 id="397a2f58-2778-81e3-a1d7-fe4257700966" class="" dir="auto">5.3 Acceptable Photo Uploads</h2><p id="397a2f58-2778-81a4-af87-e5659d99d619" class="" dir="auto">You may upload only photographs and other Content that you own or are legally authorised to use. You must not upload photographs of another person unless you have their permission and are legally entitled to do so. We reserve the right to remove any Content that breaches this clause.</p><h2 id="397a2f58-2778-810e-8a20-efa3498e8198" class="" dir="auto">5.4 User Content Licence</h2><p id="397a2f58-2778-8186-a1aa-d6a85e7e5bab" class="" dir="auto">By uploading Content, you grant Keystone Labs Ltd a worldwide, non-exclusive, royalty-free licence to store, reproduce, display, transmit, adapt and process that Content solely for the purposes of operating, improving and providing the Product and Service, complying with legal obligations and enforcing these Terms. You retain ownership of your Content at all times.</p><h2 id="397a2f58-2778-8148-b590-eb579e469e87" class="" dir="auto">5.5 Accuracy of Information</h2><p id="397a2f58-2778-810a-b1d2-ca902a0652b2" class="" dir="auto">You represent and warrant that all information you provide through the Product is accurate, complete and up to date. You agree to update your information promptly if it changes.</p><h1 id="397a2f58-2778-81f7-9c51-c8ce6ab65ff7" class="" dir="auto"></h1><h1 id="397a2f58-2778-8145-9746-f54c9dc75b2a" class="" dir="auto">6. Professional Users</h1><h2 id="397a2f58-2778-8160-b3c7-c3ad218f1e49" class="" dir="auto">6.1 Professional Responsibilities</h2><p id="397a2f58-2778-817a-b409-f158c65f6a62" class="" dir="auto">If you use the Product as a Professional, you are solely responsible for the services you offer or provide, the information displayed on your profile, your communications with Clients and your compliance with all laws, regulations, licensing requirements and professional standards applicable to your business.</p><h2 id="397a2f58-2778-81ab-ba17-eddfcfc7a5c9" class="" dir="auto">6.2 Accuracy of Professional Profiles</h2><p id="397a2f58-2778-816e-a37f-e2533bcf6879" class="" dir="auto">Professionals must ensure that all business-related information, including location, opening hours, pricing, availability, capacity, qualifications, services, and descriptions, is accurate, complete, and regularly updated.</p><h2 id="397a2f58-2778-815e-b7b1-e6f9a969e047" class="" dir="auto">6.3 Licences and Qualifications</h2><p id="397a2f58-2778-81ce-9ac5-cd3def78cc7a" class="" dir="auto">Professionals represent and warrant that any licences, qualifications, certifications, insurance, registrations, and business information they provide are genuine, valid, and maintained in accordance with applicable law.</p><h2 id="397a2f58-2778-8132-9086-cc9a02ed06a0" class="" dir="auto">6.4 Services Provided</h2><p id="397a2f58-2778-81cf-8561-fdcbd66ccbbc" class="" dir="auto">Professionals are solely responsible for the quality, safety, legality, suitability, and performance of the services they provide to Clients. Keystone Labs Ltd does not control or guarantee the outcome of any service provided by a Professional.</p><h2 id="397a2f58-2778-8107-b74d-cbb1440d9696" class="" dir="auto">6.5 Professional indemnity</h2><p id="397a2f58-2778-812c-9c07-eb6fcc97b37f" class="" dir="auto">Professionals agree to indemnify Keystone Labs Ltd against reasonable losses, claims, liabilities, costs and expenses arising from their breach of these Terms, unlawful conduct, inaccurate profile information, services provided to Clients, or infringement of third-party rights, except to the extent caused by Keystone Labs Ltd’s own breach, negligence or unlawful conduct.</p><h1 id="397a2f58-2778-8183-b547-f60b795f522e" class="" dir="auto"></h1><h1 id="397a2f58-2778-815e-9843-d7950d4b3a55" class="" dir="auto">7. Bookings and Marketplace</h1><h2 id="397a2f58-2778-81b6-8514-d998941e0573" class="" dir="auto">7.1 Booking Process</h2><p id="397a2f58-2778-811e-9768-cbecbf7206af" class="" dir="auto">Clients may use the Product to request, make, manage, or cancel Bookings with Professionals via email or phone number. A Booking is subject to the availability, and cancellation conditions provided by the profissionals directly at the time of booking.</p><h2 id="397a2f58-2778-8194-b416-c9836fc73b9e" class="" dir="auto">7.2 Client-Professional Relationship</h2><p id="397a2f58-2778-813a-a4b1-cbd5d4518cf2" class="" dir="auto">Any contract for services is entered into directly between the Client and the Professional. Keystone Labs Ltd is not an employer, employee, agent, partner, representative, contractor, or joint venture of any Client or Professional. When a Client confirms a Booking with a Professional, the contract for the underlying professional service is formed directly between that Client and that Professional. Keystone Labs Ltd provides the platform through which the Booking is made but is not a party to the contract for the professional service unless expressly stated otherwise.</p><p id="397a2f58-2778-8159-b6c6-c1f6de015125" class="" dir="auto">Currently, Keystone Labs Ltd provides a scheduling and communication directory only. We currently do not process, facilitate, or collect payments. All financial transactions, payments, deposits, and refunds are handled entirely off-platform and directly between the Client and the Professional. Keystone Labs Ltd bears no liability for payment disputes, failure to pay, cash handling, or the enforcement of any Professional&#x27;s individual refund or cancellation policy.</p><h2 id="397a2f58-2778-810a-8ed0-f36acdbe6a2a" class="" dir="auto">7.3 User Interactions and Disputes</h2><p id="397a2f58-2778-81f0-a2a0-d1b21d3ef6ae" class="" dir="auto">The Product enables interactions between Users. We do not control, endorse, or guarantee User conduct and are not responsible for the quality, safety, legality, or outcome of any services or interactions. Any dispute between Users must be resolved directly between the relevant Users. While we may, at our discretion, facilitate communication between Users or provide reporting tools, Keystone Labs Ltd is not obliged to mediate disputes or provide dispute-resolution services unless required by applicable law.</p><h2 id="397a2f58-2778-81c5-a202-cc5c57c6049a" class="" dir="auto">7.4 Reports and Ratings</h2><p id="397a2f58-2778-81d3-b77d-ccea556bde58" class="" dir="auto">The Product may allow Users to provide reviews, ratings, feedback, reports, or other information relating to services, Professionals, or Clients. We do not guarantee the accuracy or authenticity of reviews submitted by Users. We may remove, moderate, or restrict access to such Content where we reasonably consider it to be unlawful, misleading, abusive, fraudulent, irrelevant, or in breach of these Terms. Reviews and ratings submitted by Users may be publicly displayed within the Product together with the User&#x27;s profile name and any associated information chosen for display. We reserve the right to moderate, remove, or refuse to publish reviews that are unlawful, abusive, misleading, fraudulent, or otherwise in breach of these Terms.</p><h1 id="397a2f58-2778-81e6-b862-d50f1a7daa7f" class="" dir="auto"></h1><h1 id="397a2f58-2778-8133-99da-d3aeddb5a9fc" class="" dir="auto">10. AI Features</h1><h2 id="397a2f58-2778-81dc-8cb9-fb76ee5baa08" class="" dir="auto">We do not currently use AI-assisted features, but may introduce them in the future, subject to updated notices and consent where required</h2><h1 id="397a2f58-2778-8184-aa2b-d78ed88f6728" class="" dir="auto"></h1><h1 id="397a2f58-2778-81d6-bcb0-fbc0f12dad4b" class="" dir="auto">11. Intellectual Property</h1><h2 id="397a2f58-2778-815f-907d-c38a03927771" class="" dir="auto">11.1 Ownership of the Product</h2><p id="397a2f58-2778-81ac-970f-f191683b1e84" class="" dir="auto">All intellectual property rights in and to the Product, the Service, and all related software, design, text, graphics, logos, trademarks, interfaces, features, and content owned by Keystone Labs Ltd are and shall remain the exclusive property of Keystone Labs Ltd or its licensors.</p><p id="397a2f58-2778-8113-b802-ff008de2c9ca" class="" dir="auto">Except as expressly permitted by these Terms or by our prior written consent, no part of the Product or Service may be copied, modified, distributed, sold, reproduced, reverse-engineered, or otherwise exploited.</p><h2 id="397a2f58-2778-813f-b387-c8ad10dd5fb6" class="" dir="auto">11.2 User Content</h2><p id="397a2f58-2778-811b-bbe1-e4af6ba032df" class="" dir="auto">Users retain ownership of their Content. The licence granted under clause 5.4 allows Keystone Labs Ltd to use User Content only for the purposes described in these Terms.</p><h2 id="397a2f58-2778-81c2-a01a-c83230099f23" class="" dir="auto">11.3 Intellectual Property Complaints</h2><p id="397a2f58-2778-81f2-b4ff-c2946e6e3adf" class="" dir="auto">If you believe that any Content made available through the Product infringes your copyright, trade mark or other intellectual property rights, please notify us at <strong><a href="mailto:support@yourlook.app">support@yourlook.app</a></strong> with sufficient information to identify the relevant Content and the intellectual property right concerned.</p><p id="397a2f58-2778-8144-bc1c-d107cc15b40b" class="" dir="auto">We may investigate the complaint and, where we reasonably consider it appropriate, remove, restrict access to or disable the relevant Content while the matter is reviewed. Knowingly submitting false, misleading or abusive intellectual property complaints may result in the rejection of the complaint and, where appropriate, suspension or termination of the relevant User account.</p><h2 id="397a2f58-2778-8121-934e-cceb434c9710" class="" dir="auto">11.4 Complaints Procedure</h2><p id="397a2f58-2778-81be-8a9a-fd22c7bab475" class="" dir="auto">If you have a complaint about the Product or Keystone Labs Ltd, please contact us at <a href="mailto:support@yourlook.app">support@yourlook.app</a></p><p id="397a2f58-2778-812f-99d6-e73bc34a7c14" class="" dir="auto">We will aim to acknowledge complaints within 10 business days and respond within a reasonable period. If your complaint relates to services provided by a Professional, we may direct you to the relevant Professional, although we may assist where appropriate. We do not currently commit to using a specific alternative dispute resolution provider, but we will consider reasonable proposals to resolve disputes fairly.</p><h2 id="397a2f58-2778-81c9-b233-c3fbb3d2ab2e" class="" dir="auto">11.5 Feedback</h2><p id="397a2f58-2778-81b8-9593-fdee089e0c88" class="" dir="auto">If you provide suggestions, ideas, comments, or feedback about the Product or Service, you grant us the right to use that feedback under a perpetual, irrevocable, worldwide, transferable, royalty-free licences, provided that we do not identify you publicly without your consent.</p><h1 id="397a2f58-2778-8144-9cbc-e06c7d7ff847" class="" dir="auto"></h1><h1 id="397a2f58-2778-81cb-a2ef-dc7ba4ff9b9d" class="" dir="auto">12. Fraud and Security</h1><h2 id="397a2f58-2778-8129-a64f-d899ac0da395" class="" dir="auto">12.1 Fraud Prevention</h2><p id="397a2f58-2778-8198-9259-f549b0a5a8d2" class="" dir="auto">We reserve the right to investigate suspected fraud, abuse, unlawful activity, or misuse involving the Product or Service.</p><h2 id="397a2f58-2778-8148-b66f-dc1d37da525e" class="" dir="auto">12.2 Suspicious Activity</h2><p id="397a2f58-2778-8170-a2b2-fa2e18d942fe" class="" dir="auto">Where we reasonably believe that suspicious, fraudulent, harmful or unlawful activity has occurred, we may suspend or terminate accounts, cancel transactions, restrict access to the Product, remove Content, withhold or reverse transactions, where permitted by law, or take other steps reasonably necessary to protect Users, Keystone Labs Ltd, or third parties.</p><h2 id="397a2f58-2778-8188-8bb6-f26260cbb513" class="" dir="auto">12.3 Cooperation with Authorities</h2><p id="397a2f58-2778-818c-bb1e-d61052a54a76" class="" dir="auto">We may cooperate with law enforcement, regulatory, or governmental authorities where required by law or where reasonably necessary to protect rights, safety, security, or the integrity of the Product.</p><h1 id="397a2f58-2778-8110-8e2a-f8210a5273fe" class="" dir="auto"></h1><h1 id="397a2f58-2778-81df-8881-d201bbe8d3b4" class="" dir="auto">13. Suspension and Termination</h1><h2 id="397a2f58-2778-812c-b573-d6530cf0229f" class="" dir="auto">13.1 Suspension</h2><p id="397a2f58-2778-8116-827b-f16d9e8578d6" class="" dir="auto">We may suspend, restrict, or limit your access to the Product or Service if we reasonably believe that you have breached these Terms, provided false or misleading information, engaged in fraudulent or harmful conduct, created a risk to Users or third parties, or where we are required to do so by law or by a competent authority. Where practicable, we will give you notice of suspension or termination and the reason for it, unless doing so would create legal, security, fraud-prevention or operational risks. Suspension or termination will not affect any completed transactions, confirmed bookings, refund rights or payment obligations that arose before suspension or termination.</p><h2 id="397a2f58-2778-81fb-98e5-c0b20e7c1179" class="" dir="auto">13.2 Termination by Keystone Labs</h2><p id="397a2f58-2778-8198-bbdf-ddbd90d1ca59" class="" dir="auto">We may terminate your access to the Product or Service where we reasonably consider that continued access would breach these Terms, violate applicable law, or create a risk to the Product, Service, Users, Keystone Labs Ltd, or third parties.</p><h2 id="397a2f58-2778-81f4-9d25-fba2e0ce947f" class="" dir="auto">13.3 Termination by Users</h2><p id="397a2f58-2778-81c8-8024-c084aec1b3e4" class="" dir="auto">You may stop using the Product or Service at any time. You remain responsible for any obligations, payments or liabilities incurred before termination or account closure.</p><h2 id="397a2f58-2778-81a3-8d60-f693ad5bed9b" class="" dir="auto">13.4 Effect of Termination</h2><p id="397a2f58-2778-8146-948a-ef973860dcc3" class="" dir="auto">Termination or suspension does not limit any rights or remedies available to us. Provisions of these Terms that by their nature should survive termination shall remain in effect, including provisions relating to intellectual property, payments owed, liability, dispute resolution and general provisions.</p><h1 id="397a2f58-2778-814d-913d-f23ce4c7fb67" class="" dir="auto"></h1><h1 id="397a2f58-2778-81f5-bb63-e63548402ccf" class="" dir="auto">14. Limitation of Liability</h1><h2 id="397a2f58-2778-813e-8237-d008d97c9c58" class="" dir="auto">14.1 General Limitation</h2><p id="397a2f58-2778-81ac-b3f1-e07119839f79" class="" dir="auto">To the fullest extent permitted by law, Keystone Labs Ltd shall not be liable for any indirect, incidental, special, consequential, exemplary or punitive losses, or for any loss of profit, loss of revenue, loss of business, loss of goodwill, loss of data or loss arising from services provided by Professionals, in each case arising out of or in connection with the Product, Service or these Terms.</p><p id="397a2f58-2778-8181-a21a-ce6f3ee2f89b" class="" dir="auto">This clause does not limit or exclude our liability for failing to provide the Product with reasonable care and skill or for any liability that cannot be excluded under applicable consumer protection law.</p><h2 id="397a2f58-2778-8139-9c63-eb066d7a6ef5" class="" dir="auto">14.2 Nothing Excluded by Law</h2><p id="397a2f58-2778-8118-b491-d299ac0c6a1b" class="" dir="auto">Nothing in these Terms limits or excludes liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, breach of your statutory rights as a consumer, including rights under the Consumer Rights Act 2015, or any other liability that cannot lawfully be excluded or limited.</p><h1 id="397a2f58-2778-81eb-b347-dcfcf76d8a3c" class="" dir="auto"></h1><h1 id="397a2f58-2778-81b5-a1de-ebf172c7007d" class="" dir="auto">15. General Provisions</h1><h2 id="397a2f58-2778-8150-b83e-c894e240b731" class="" dir="auto">15.1 Governing Law</h2><h2 id="397a2f58-2778-815d-86d6-ef3fb1abf60d" class="" dir="auto">These Terms are governed by the laws of Scotland. If you are a consumer, this does not affect any mandatory consumer protection rights you may have under the laws of the country or part of the United Kingdom in which you live. The courts of Scotland will have jurisdiction over disputes arising out of or in connection with these Terms, except that consumers may also be entitled to bring proceedings in the courts of the country or part of the United Kingdom in which they live, where applicable law gives them that right.</h2><h2 id="397a2f58-2778-819f-8ae2-f71ed5eba92d" class="" dir="auto">15.2 Jurisdiction</h2><p id="397a2f58-2778-81f9-841f-cde928488081" class="" dir="auto">Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Scotland, unless applicable law requires otherwise.</p><h2 id="397a2f58-2778-81ab-b0d2-f60cd914d127" class="" dir="auto">15.3 Electronic Communications</h2><p id="397a2f58-2778-81c0-8f9d-fc31464b6f27" class="" dir="auto">By creating an account or using the Product, you agree that we may communicate with you electronically, including by email, in-app notifications, or other electronic means regarding your account, Bookings, security matters, legal notices, and updates to the Product.</p><h2 id="397a2f58-2778-81d7-a587-e1abb19f9a9a" class="" dir="auto">15.4 Force Majeure</h2><p id="397a2f58-2778-81c2-8c70-ea988f5905d9" class="" dir="auto">Keystone Labs Ltd shall not be liable for any delay or failure to perform its obligations where such delay or failure results from circumstances beyond its reasonable control, including natural disasters, acts of government, cyber-attacks, failures of telecommunications networks, industrial disputes, or other force majeure events.</p><h2 id="397a2f58-2778-8139-9a15-c278c68d9441" class="" dir="auto">15.5 Assignment</h2><p id="397a2f58-2778-81eb-be33-f458de297fcc" class="" dir="auto">We may assign or transfer our rights and obligations under these Terms in connection with a merger, acquisition, corporate restructuring or sale of assets, provided that such transfer does not materially reduce your rights under these Terms.</p><h2 id="397a2f58-2778-81c7-b6dc-d9629cc39093" class="" dir="auto">15.6 No Waiver</h2><p id="397a2f58-2778-8127-898a-cf6bdcac90d3" class="" dir="auto">Any failure by Keystone Labs Ltd to enforce any provision of these Terms shall not constitute a waiver of that provision or of any other rights.</p><h2 id="397a2f58-2778-8122-aab1-e6fd57cba54b" class="" dir="auto">15.7 Severability</h2><p id="397a2f58-2778-8163-929b-ee3f1b19e209" class="" dir="auto">If any provision of these Terms is found to be invalid, unlawful or unenforceable, the remaining provisions shall remain in full force and effect.</p><h2 id="397a2f58-2778-811f-abec-f7c3377dc4f9" class="" dir="auto">15.8 Entire Agreement</h2><p id="397a2f58-2778-8106-8f2f-c9a930e64c99" class="" dir="auto">These Terms, together with the Privacy Notice and any policies expressly incorporated by reference, constitute the entire agreement between you and Keystone Labs Ltd regarding your use of the Product and supersede any prior agreements or understandings relating to the Product.</p><h1 id="397a2f58-2778-8180-88b1-cedd7a1a2b5d" class="" dir="auto"></h1><h1 id="397a2f58-2778-8166-9b99-f7c532c1a428" class="" dir="auto">16. Contact Information</h1><p id="397a2f58-2778-8145-b189-d49393bf6d99" class="" dir="auto">If you have any questions about these Terms, please contact us at <a href="mailto:support@yourlook.app">support@yourlook.app</a>.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
