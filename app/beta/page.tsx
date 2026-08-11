@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
-import { useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import H1 from "../components/H1";
 import P from "../components/P";
@@ -14,9 +14,7 @@ const ANDROID_APK_URL = "https://testflight.apple.com/join/J6Gj3yUg";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
 
-function getDeviceSnapshot(): DeviceType {
-  if (typeof window === "undefined") return "UNKNOWN";
-
+function detectDevice(): DeviceType {
   const ua = navigator.userAgent;
   const isIOS =
     /iPhone|iPad|iPod/i.test(ua) ||
@@ -30,19 +28,18 @@ function getDeviceSnapshot(): DeviceType {
   return "UNKNOWN";
 }
 
-const dummySubscribe = () => () => {};
-
 export default function BetaPage() {
-  const device = useSyncExternalStore(
-    dummySubscribe,
-    getDeviceSnapshot,
-    () => "UNKNOWN",
-  );
+  const [device, setDevice] = useState<DeviceType>("UNKNOWN");
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setDevice(detectDevice());
+    });
+  }, []);
 
   return (
     <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
       <PillCard className="gap-4 grid">
-        {/* Hardcoded QR Code */}
         <div className="bg-white p-3 rounded-xl w-46 h-46 shadow-md flex items-center justify-center shrink-0">
           <QRCodeSVG
             value={QR_INSTALL_URL}
