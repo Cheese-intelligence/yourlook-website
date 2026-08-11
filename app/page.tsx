@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { Button } from "./components/Button";
 import { subscribe } from "./subscribe";
 
 export default function Home() {
@@ -52,12 +53,9 @@ export default function Home() {
         {state?.error && (
           <p className="text-red-400/80 text-sm">Error: {state.error}</p>
         )}
-        <button
-          disabled={pending}
-          className="w-full rounded-full inline-flex h-10 items-center justify-center bg-linear-to-r from-[#BDCEFF] via-white to-[#FFF2C0] px-4 py-2 text-sm text-black font-bold transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
-        >
+        <Button disabled={pending}>
           {pending ? "Signing up..." : "Join waiting list"}
-        </button>
+        </Button>
       </form>
     </main>
   );
