@@ -10,7 +10,8 @@ import PillCard from "../components/PillCard";
 
 const QR_INSTALL_URL = "https://yourlook.app/beta";
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/J6Gj3yUg";
-const ANDROID_APK_URL = "https://testflight.apple.com/join/J6Gj3yUg";
+const ANDROID_APK_URL =
+  "https://drive.google.com/file/d/1xL5FZuNlZ1_GNxG4r2NzrP83-DDwUemL/view?usp=sharing";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
 
