@@ -7,10 +7,10 @@ import { Input } from "../components/Input";
 import Logo from "../components/Logo";
 import P from "../components/P";
 import { Textarea } from "../components/TextArea";
-import { sendFeedback } from "./sendFeedback";
+import { contactUs } from "./contactUs";
 
-export default function Feedback() {
-  const [state, formAction, pending] = useActionState(sendFeedback, {
+export default function Contact() {
+  const [state, formAction, pending] = useActionState(contactUs, {
     error: null,
   });
 
@@ -18,9 +18,9 @@ export default function Feedback() {
     <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-7">
       <div>
         <Logo />
-        <H1 className="text-center">YourLook Feedback</H1>
+        <H1 className="text-center">Contact Us</H1>
         <P className="text-center">
-          We’d love to hear your thoughts or suggestions.
+          Have a question or need help? Send us a message.
         </P>
       </div>
 
@@ -42,13 +42,13 @@ export default function Feedback() {
 
         <div className="flex flex-col gap-2">
           <label htmlFor="text" className="text-zinc-300">
-            Feedback
+            Message
           </label>
           <Textarea
             id="text"
             name="text"
             rows={4}
-            placeholder="Tell us what you think..."
+            placeholder="How can we help?"
             required
           />
         </div>
@@ -58,7 +58,7 @@ export default function Feedback() {
         )}
 
         <Button className="w-full" disabled={pending}>
-          {pending ? "Submitting..." : "Send Feedback"}
+          {pending ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </main>
