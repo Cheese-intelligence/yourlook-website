@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: "We’d love to hear your thoughts or suggestions.",
 };
 
-export function page() {
+export default function Page() {
   return <Feedback />;
 }
