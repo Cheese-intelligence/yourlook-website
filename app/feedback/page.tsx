@@ -1,6 +1,5 @@
 "use client";
 
-import { Metadata } from "next";
 import { useActionState } from "react";
 import Button from "../components/Button";
 import H1 from "../components/H1";
@@ -9,11 +8,6 @@ import Logo from "../components/Logo";
 import P from "../components/P";
 import { Textarea } from "../components/TextArea";
 import { sendFeedback } from "./sendFeedback";
-
-export const metadata: Metadata = {
-  title: "YourLook Feedback",
-  description: "We’d love to hear your thoughts or suggestions.",
-};
 
 export default function Feedback() {
   const [state, formAction, pending] = useActionState(sendFeedback, {
