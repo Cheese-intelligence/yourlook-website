@@ -7,11 +7,7 @@ import { Button } from "../components/Button";
 import H1 from "../components/H1";
 import P from "../components/P";
 import PillCard from "../components/PillCard";
-
-const QR_INSTALL_URL = "https://yourlook.app/beta";
-const TESTFLIGHT_URL = "https://testflight.apple.com/join/J6Gj3yUg";
-const ANDROID_APK_URL =
-  "https://drive.google.com/file/d/1xL5FZuNlZ1_GNxG4r2NzrP83-DDwUemL/view?usp=sharing";
+import { ANDROID_APK_URL, QR_INSTALL_URL } from "./beta-constants";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
 
@@ -59,7 +55,7 @@ export default function BetaContent() {
         <P colour="secondary">Install preview build here:</P>
 
         <div className="grid gap-2 w-full">
-          <Link href={TESTFLIGHT_URL} className="flex-1 w-full">
+          <Link href={"/beta/ios-tutorial"} className="flex-1 w-full">
             <Button
               variant={device === "APPLE" ? "fancy" : "tertiary"}
               className="w-full"
