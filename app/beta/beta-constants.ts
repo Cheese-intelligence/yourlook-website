@@ -5,4 +5,4 @@ export const APP_TESTFLIGHT_URL =
 export const INSTALL_TESTFLIGHT_URL =
   "https://apps.apple.com/us/app/testflight/id899247664?mt=8";
 export const ANDROID_APK_URL =
-  "https://drive.google.com/file/d/1xL5FZuNlZ1_GNxG4r2NzrP83-DDwUemL/view?usp=sharing";
+  "https://drive.google.com/file/d/1xL5FZuNlZ1_GNxG4r2NzrP83-DDwUemL/view";
