@@ -7,7 +7,7 @@ import { Button } from "../components/Button";
 import H1 from "../components/H1";
 import P from "../components/P";
 import PillCard from "../components/PillCard";
-import { ANDROID_APK_URL, QR_INSTALL_URL } from "./beta-constants";
+import { QR_INSTALL_URL } from "./beta-constants";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
 
@@ -63,7 +63,7 @@ export default function BetaContent() {
               Try on iOS
             </Button>
           </Link>
-          <Link href={ANDROID_APK_URL} className="flex-1 w-full">
+          <Link href={"/beta/android-tutorial"} className="flex-1 w-full">
             <Button
               variant={device === "ANDROID" ? "fancy" : "tertiary"}
               className="w-full"

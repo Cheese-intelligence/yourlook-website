@@ -8,12 +8,7 @@ import PillCard from "@/app/components/PillCard";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { APP_TESTFLIGHT_URL, INSTALL_TESTFLIGHT_URL } from "../beta-constants";
-
-const QR_INSTALL_URL = "https://yourlook.app/beta";
-const TESTFLIGHT_URL = "https://testflight.apple.com/join/J6Gj3yUg";
-const ANDROID_APK_URL =
-  "https://drive.google.com/file/d/1xL5FZuNlZ1_GNxG4r2NzrP83-DDwUemL/view?usp=sharing";
+import { ANDROID_APK_URL } from "../beta-constants";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
 
@@ -31,7 +26,7 @@ function detectDevice(): DeviceType {
   return "UNKNOWN";
 }
 
-export default function IosTutorialContent() {
+export default function AndroidTutorialContent() {
   const [device, setDevice] = useState<DeviceType>("UNKNOWN");
 
   useEffect(() => {
@@ -43,7 +38,7 @@ export default function IosTutorialContent() {
   return (
     <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
       <div className="w-full grid grid-cols-[48px_1fr_48px] items-center">
-        <Link href={"/beta/"}>
+        <Link href="/beta">
           <Button size="icon" variant="secondary" icon={ArrowLeft} />
         </Link>
 
@@ -56,35 +51,32 @@ export default function IosTutorialContent() {
       </div>
 
       <PillCard className="grid gap-4">
-        <H2>1. Install TestFlight</H2>
+        <H2>1. Download the APK</H2>
         <P colour="secondary">
-          Apple uses TestFlight to let you try out beta apps. Download it from
-          the App Store.
+          Download the latest Android installation file directly to your device.
         </P>
-        <Link href={INSTALL_TESTFLIGHT_URL} className="flex-1 w-full">
+        <Link
+          href={ANDROID_APK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 w-full"
+        >
           <Button
             variant={device === "ANDROID" ? "fancy" : "tertiary"}
             className="w-full"
           >
-            Get TestFlight
+            Download APK
           </Button>
         </Link>
       </PillCard>
 
       <PillCard className="grid gap-4">
-        <H2>2. Join the YourLook Beta</H2>
-        <P colour="secondary">
-          Once TestFlight is installed, tap below to accept the invitation and
-          download YourLook.
+        <H2>2. Install & Allow Permissions</H2>
+        <P>
+          Tap <strong>Settings</strong> and enable{" "}
+          <strong>&quot;Install unknown apps&quot;</strong> (or &quot;Allow from
+          this source&quot;).
         </P>
-        <Link href={APP_TESTFLIGHT_URL} className="flex-1 w-full">
-          <Button
-            variant={device === "ANDROID" ? "fancy" : "tertiary"}
-            className="w-full"
-          >
-            Install YourLook
-          </Button>
-        </Link>
       </PillCard>
     </main>
   );
