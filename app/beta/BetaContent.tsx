@@ -5,6 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import H1 from "../components/H1";
+import H3 from "../components/H3";
 import P from "../components/P";
 import PillCard from "../components/PillCard";
 import { QR_INSTALL_URL } from "./beta-constants";
@@ -25,6 +26,34 @@ function detectDevice(): DeviceType {
   return "UNKNOWN";
 }
 
+interface YouTubeCardProps {
+  title: string;
+  description: string;
+  videoId: string;
+}
+
+function YouTubeCard({ title, description, videoId }: YouTubeCardProps) {
+  return (
+    <PillCard className="gap-3 grid p-5">
+      <div className="space-y-1">
+        <H3>{title}</H3>
+        <P>{description}</P>
+      </div>
+
+      <div className="relative overflow-hidden rounded-xl bg-black/5 aspect-3/4 w-full">
+        <iframe
+          className="w-full h-full rounded-xl border-0"
+          src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          loading="lazy"
+        />
+      </div>
+    </PillCard>
+  );
+}
+
 export default function BetaContent() {
   const [device, setDevice] = useState<DeviceType>("UNKNOWN");
 
@@ -36,6 +65,7 @@ export default function BetaContent() {
 
   return (
     <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
+      {/* Install & QR Card */}
       <PillCard className="gap-4 grid">
         <div className="bg-white p-3 rounded-xl w-46 h-46 shadow-md flex items-center justify-center shrink-0">
           <QRCodeSVG
@@ -73,6 +103,18 @@ export default function BetaContent() {
           </Link>
         </div>
       </PillCard>
+
+      <YouTubeCard
+        title="Stylist Walkthrough"
+        description="Learn how to set up, manage client appointments, and deliver looks."
+        videoId="aL15gVn5esw"
+      />
+
+      <YouTubeCard
+        title="Client Walkthrough"
+        description="Discover how to find your style."
+        videoId="lEPsdg5ODIQ"
+      />
     </main>
   );
 }
