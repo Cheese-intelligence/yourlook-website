@@ -5,9 +5,9 @@ import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import H1 from "../components/H1";
-import H3 from "../components/H3";
 import P from "../components/P";
 import PillCard from "../components/PillCard";
+import { YouTubeCard } from "../components/YouTubeCard";
 import { QR_INSTALL_URL } from "./beta-constants";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
@@ -24,34 +24,6 @@ function detectDevice(): DeviceType {
   if (isAndroid) return "ANDROID";
   if (isDesktop) return "DESKTOP";
   return "UNKNOWN";
-}
-
-interface YouTubeCardProps {
-  title: string;
-  description: string;
-  videoId: string;
-}
-
-function YouTubeCard({ title, description, videoId }: YouTubeCardProps) {
-  return (
-    <PillCard className="gap-3 grid p-5">
-      <div className="space-y-1">
-        <H3>{title}</H3>
-        <P>{description}</P>
-      </div>
-
-      <div className="relative overflow-hidden rounded-xl bg-black/5 aspect-3/4 w-full">
-        <iframe
-          className="w-full h-full rounded-xl border-0"
-          src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          loading="lazy"
-        />
-      </div>
-    </PillCard>
-  );
 }
 
 export default function BetaContent() {
@@ -105,14 +77,14 @@ export default function BetaContent() {
       </PillCard>
 
       <YouTubeCard
-        title="Stylist Walkthrough"
-        description="Learn how to set up, manage client appointments, and deliver looks."
+        title="Stylist: How to Use"
+        description="Set up your profile, manage bookings, and send looks to clients."
         videoId="aL15gVn5esw"
       />
 
       <YouTubeCard
-        title="Client Walkthrough"
-        description="Discover how to find your style."
+        title="Client: How to Use"
+        description="Find top stylists, book sessions, and get your personalized style."
         videoId="lEPsdg5ODIQ"
       />
     </main>
