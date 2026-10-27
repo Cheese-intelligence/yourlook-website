@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "YourLook",
-  description: "Join the waiting list to find the look that actually fits you.",
+  description: "Now available on Play Store and App Store.",
 };
 
 export default function RootLayout({
