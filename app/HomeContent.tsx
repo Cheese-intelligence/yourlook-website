@@ -1,15 +1,40 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Button } from "./components/Button";
 import { YouTubeCard } from "./components/YouTubeCard";
 import { ANDROID_PLAY_STORE_URL, IOS_APP_STORE_URL } from "./constants";
 
+type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
+
+function detectDevice(): DeviceType {
+  const ua = navigator.userAgent;
+  const isIOS =
+    /iPhone|iPad|iPod/i.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(ua);
+  const isDesktop = /Windows|Macintosh|Linux/i.test(ua) && !isIOS && !isAndroid;
+
+  if (isIOS) return "APPLE";
+  if (isAndroid) return "ANDROID";
+  if (isDesktop) return "DESKTOP";
+  return "UNKNOWN";
+}
+
 export default function HomeContent() {
+  const [device, setDevice] = useState<DeviceType>("UNKNOWN");
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setDevice(detectDevice());
+    });
+  }, []);
+
   return (
     <main className="w-full">
-      {/* Above the fold hero */}
-      <section className="relative min-h-screen flex flex-col justify-end items-center px-6 pb-14 pt-16 overflow-hidden">
+      {/* Above the fold hero accounting for mobile browser UI */}
+      <section className="relative min-h-[100svh] min-h-dvh flex flex-col justify-end items-center px-6 pb-12 pt-16 overflow-hidden">
         {/* Ambient atmospheric glows with brand colors */}
         <div
           className="pointer-events-none absolute -top-16 -left-16 w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-[#BDCEFF]/20 blur-[120px]"
@@ -39,7 +64,7 @@ export default function HomeContent() {
             Now available on Play Store and App Store
           </p>
 
-          {/* Pill buttons using existing Button component */}
+          {/* Pill buttons using existing Button component with device highlighting */}
           <div className="w-full flex flex-col gap-3">
             <Link
               href={ANDROID_PLAY_STORE_URL}
@@ -47,7 +72,10 @@ export default function HomeContent() {
               rel="noopener noreferrer"
               className="w-full block"
             >
-              <Button variant="secondary" className="w-full">
+              <Button
+                variant={device === "ANDROID" ? "fancy" : "secondary"}
+                className="w-full"
+              >
                 Android
               </Button>
             </Link>
@@ -58,8 +86,11 @@ export default function HomeContent() {
               rel="noopener noreferrer"
               className="w-full block"
             >
-              <Button variant="secondary" className="w-full">
-                ios
+              <Button
+                variant={device === "APPLE" ? "fancy" : "secondary"}
+                className="w-full"
+              >
+                iOS
               </Button>
             </Link>
           </div>
