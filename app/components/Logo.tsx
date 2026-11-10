@@ -1,18 +1,40 @@
-import Link from "next/link";
+import { type SVGProps } from "react";
 
-export default function Logo() {
+export const LOGO_VIEWBOX_WIDTH = 253;
+export const LOGO_VIEWBOX_HEIGHT = 184;
+export const LOGO_ASPECT_RATIO = LOGO_VIEWBOX_WIDTH / LOGO_VIEWBOX_HEIGHT;
+
+export const LOGO_DEFAULT_WIDTH = 86;
+export const LOGO_DEFAULT_HEIGHT = 63;
+
+export const LOGO_WIDTH = LOGO_DEFAULT_WIDTH;
+export const LOGO_HEIGHT = LOGO_DEFAULT_HEIGHT;
+
+export const LOGO_SVG_PATH =
+  "M252.441 150.177V182C252.441 183.105 251.546 184 250.441 184H147.643C146.72 184 145.924 183.395 145.716 182.495C143.824 174.292 135.015 134.355 136.362 107.469C138.567 63.4339 170.741 0 170.741 0C170.741 0 114.888 59.1979 104.814 107.469C99.5134 132.869 104.639 171.868 106.08 181.692C106.259 182.913 105.312 184 104.079 184H65.9637C64.8591 184 63.9637 183.105 63.9637 182V108.031C63.9637 107.663 63.8626 107.303 63.6713 106.99L0.295537 3.04113C-0.517026 1.70837 0.442248 0 2.00318 0H44.2141C44.9232 0 45.5792 0.375402 45.9384 0.9867L82.8668 63.8268C83.6399 65.1424 85.5423 65.1424 86.3154 63.8268L123.244 0.986703C123.603 0.375405 124.259 0 124.968 0H170.741V146.177C170.741 147.282 171.636 148.177 172.741 148.177H250.441C251.546 148.177 252.441 149.072 252.441 150.177Z";
+
+export interface LogoProps extends SVGProps<SVGSVGElement> {
+  color?: string;
+}
+
+export function Logo({
+  width = LOGO_DEFAULT_WIDTH,
+  height = LOGO_DEFAULT_HEIGHT,
+  color = "white",
+  ...props
+}: LogoProps) {
   return (
-    <Link href="/" className="block w-fit mx-auto mb-5">
-      <svg viewBox="0 0 405 312" xmlns="http://www.w3.org/2000/svg" height={48}>
-        <path
-          d="m7.0093 0h58.16c2.596 0 4.9788 1.4366 6.1906 3.7325l63.954 121.17c2.633 4.987 9.781 4.973 12.394-0.025l63.217-120.93c1.207-2.3095 3.597-3.7572 6.203-3.7572l56.407-2.29e-4c1.949 0 3.711 0.79643 4.981 2.0816-14.149 14.757-98.296 105.22-112.19 183.42-8.003 45.054 3 125.17 3 125.17h-63.301c-3.866 0-7.0001-3.134-7.0001-7v-101.04c0-1.114-0.2659-2.212-0.7757-3.203l-97.468-189.41c-2.3973-4.6586 0.985-10.203 6.2242-10.203z"
-          fill="#FFFFFF"
-        />
-        <path
-          d="m280.54 249.8c0 3.866 3.134 7 7 7h109.68c3.866 0 7 3.134 7 7v40.244c0 3.866-3.134 7-7 7h-150.82s-21.543-68.324-19.851-114.36c2.611-71.051 44.839-174.71 52.734-193.52 0.797 1.1369 1.266 2.5218 1.266 4.0162v242.61z"
-          fill="#FFFFFF"
-        />
-      </svg>
-    </Link>
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${LOGO_VIEWBOX_WIDTH} ${LOGO_VIEWBOX_HEIGHT}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d={LOGO_SVG_PATH} fill={color} />
+    </svg>
   );
 }
+
+export default Logo;
