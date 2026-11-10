@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import BenefitsSection from "./components/BenefitsSection";
 import { Button } from "./components/Button";
-import { HairShaderBg } from "./components/HairShaderBg";
 import Logo from "./components/Logo";
-import { YouTubeCard } from "./components/YouTubeCard";
 import { ANDROID_PLAY_STORE_URL, IOS_APP_STORE_URL } from "./constants";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
@@ -57,8 +56,6 @@ export default function HomeContent() {
         ref={heroRef}
         className="relative min-h-[100svh] min-h-dvh flex flex-col justify-end items-center px-6 pb-12 pt-16 overflow-hidden"
       >
-        <HairShaderBg fadeY={fadeY} />
-
         {/* Content pushed down */}
         <div className="relative z-10 w-full max-w-sm flex flex-col items-center text-center">
           {/* YL Monogram Logo */}
@@ -105,20 +102,8 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Below the fold content */}
-      <section className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
-        <YouTubeCard
-          title="Stylist: How to Use"
-          description="Set up your profile, manage bookings, and send looks to clients."
-          videoId="aL15gVn5esw"
-        />
-
-        <YouTubeCard
-          title="Client: How to Use"
-          description="Find top stylists, book sessions, and get your personalized style."
-          videoId="lEPsdg5ODIQ"
-        />
-      </section>
+      {/* [SECTION 2: THE BENEFITS / FEATURES] */}
+      <BenefitsSection />
     </main>
   );
 }

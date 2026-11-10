@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const VS_SOURCE = `
+precision highp float;
 attribute vec2 position;
 void main() {
   gl_Position = vec4(position, 0.0, 1.0);
@@ -23,87 +24,89 @@ uniform float u_fadeY;
 void main() {
     // Coordinate system with top-left as (0, 0)
     vec2 pos = vec2(gl_FragCoord.x, u_resolution.y - gl_FragCoord.y);
-    vec2 screenUv = pos / u_resolution;
+    vec2 safeRes = max(u_resolution, vec2(1.0, 1.0));
+    vec2 screenUv = pos / safeRes;
 
-    // Dynamic width & height aspect-ratio correction (centered, 1:1 isotropic scale)
-    float aspect = u_resolution.x / u_resolution.y;
+    // Dynamic aspect-ratio handling
+    float aspect = safeRes.x / safeRes.y;
     vec2 uv = screenUv;
     if (aspect > 1.0) {
         // Landscape / PC: keep vertical scale, center horizontally
         uv.x = (screenUv.x - 0.5) * aspect + 0.5;
-    } else {
-        // Portrait / Mobile: keep horizontal scale, center vertically
-        uv.y = (screenUv.y - 0.5) / aspect + 0.5;
     }
 
-    // Full-screen diagonal grain coordinates
+    // Diagonal hair grain coordinates
     float flow = uv.x * 0.76 - uv.y * 0.64;
-    float cross = uv.x * 0.64 + uv.y * 0.76;
+    float crossCoord = uv.x * 0.64 + uv.y * 0.76;
 
-    // Serpentine traveling wave propagation (counter-balanced waves prevent monotonous diagonal drift)
+    // Serpentine traveling wave propagation
     float t = u_time * 0.45;
-    float slither1 = sin(cross * 4.2 - t * 0.8) * 0.075;
-    float slither2 = cos(cross * 6.5 + t * 0.6 + 1.2) * 0.045;
+    float slither1 = sin(crossCoord * 4.2 - t * 0.8) * 0.075;
+    float slither2 = cos(crossCoord * 6.5 + t * 0.6 + 1.2) * 0.045;
     float crossDistort = sin(flow * 3.6 - t * 0.5) * 0.055;
     float warped = flow + slither1 + slither2 + crossDistort;
 
-    // Organic clumping along the serpentine flow (natural hair lock grouping)
+    // Organic clumping along the serpentine flow
     float clump = sin(warped * 14.0) * 0.4 + cos(warped * 32.0) * 0.2;
     float irregularFlow = warped * 115.0 + clump * 18.0;
 
-    // High-density microscopic hair fibers
-    float h1 = sin(irregularFlow) * 0.5 + 0.5;
-    float h2 = sin(irregularFlow * 2.1 + sin(warped * 45.0) * 8.0) * 0.5 + 0.5;
-    float fibers = pow(h1, 4.0) * 0.55 + pow(h2, 6.0) * 0.45;
+    // Microscopic hair fibers (clamped to prevent negative float rounding on mobile)
+    float h1 = clamp(sin(irregularFlow) * 0.5 + 0.5, 0.0, 1.0);
+    float h2 = clamp(sin(irregularFlow * 2.1 + sin(warped * 45.0) * 8.0) * 0.5 + 0.5, 0.0, 1.0);
+    float h1_2 = h1 * h1;
+    float h1_4 = h1_2 * h1_2;
+    float h2_2 = h2 * h2;
+    float h2_6 = h2_2 * h2_2 * h2_2;
+    float fibers = h1_4 * 0.55 + h2_6 * 0.45;
 
-    // Organic wandering light beam across the full screen
-    float sweep = 0.52
-                + sin(u_time * 0.24) * 0.38
-                + cos(u_time * 0.12 + 1.4) * 0.20
-                + sin(u_time * 0.06 + 3.1) * 0.12;
+    // Sweeping highlight beam across the screen
+    float sweep = 0.55
+                + sin(u_time * 0.35) * 0.40
+                + cos(u_time * 0.18 + 1.4) * 0.20;
 
-    float beamDist = cross - sweep;
-    float bdNorm = beamDist / 0.26;
-    float beam = exp(-(bdNorm * bdNorm));
+    float beamDist = crossCoord - sweep;
+    float bdNorm = beamDist / 0.28;
+    float beam = exp(-clamp(bdNorm * bdNorm, 0.0, 30.0));
 
-    // Specular glint along the slithering wave crests
-    float glint = pow(max(fibers, 0.0), 3.5) * (beam * beam);
+    // Specular glint along hair wave crests (safe epsilon avoids mobile pow(0) = NaN)
+    float glint = pow(max(fibers, 0.0001), 3.5) * (beam * beam);
 
-    // Brand Colors (pure white #FFFFFF reserved for UI text)
-    vec3 silkYellow = vec3(1.0, 0.949, 0.753); // COLORS.yellow
-    vec3 silkBlue = vec3(0.741, 0.808, 1.0);   // COLORS.blue
-    vec3 champagneHighlight = vec3(1.0, 0.975, 0.88); // warm champagne sheen
+    // Brand Colors
+    vec3 silkYellow = vec3(1.0, 0.949, 0.753);
+    vec3 silkBlue = vec3(0.741, 0.808, 1.0);
+    vec3 champagne = vec3(1.0, 0.975, 0.88);
 
-    // Baseline dark gray hair tone (hair texture is always gently visible in the shadows)
-    vec3 charcoalHair = vec3(0.18, 0.19, 0.22);
-    vec3 ambientBase = charcoalHair * (fibers * 0.15);
+    // Baseline visible hair color (noticeable rich dark tones)
+    vec3 charcoalHair = vec3(0.24, 0.25, 0.28);
+    vec3 ambientBase = charcoalHair * (0.20 + fibers * 0.45);
 
     // Chromatic transition across the sweeping beam
-    vec3 beamColor = mix(silkBlue, silkYellow, smoothstep(-0.22, 0.22, beamDist));
+    vec3 beamColor = mix(silkBlue, silkYellow, clamp(beamDist * 2.5 + 0.5, 0.0, 1.0));
 
-    // Composite: always-present dark gray hair + sweeping chromatic highlight beam
-    vec3 color = ambientBase;
-    color += beamColor * beam * 0.08;
-    color += beamColor * (fibers * beam) * 0.38;
-    color += champagneHighlight * glint * 0.24;
+    // Composite hair color
+    vec3 hairColor = ambientBase;
+    hairColor += beamColor * beam * 0.25;
+    hairColor += beamColor * (fibers * beam) * 0.70;
+    hairColor += champagne * glint * 0.45;
 
-    // Soft text zone breathing attenuation (keeps typography 100% crisp)
+    // Text zone soft breathing attenuation (keeps typography crisp)
     vec2 textCenter = vec2(0.5, 0.62);
     vec2 textDist = (screenUv - textCenter) * vec2(1.0, 1.35);
     float textZone = smoothstep(0.18, 0.68, length(textDist));
-    color *= mix(0.42, 1.0, textZone);
+    hairColor *= mix(0.55, 1.0, textZone);
 
-    float alpha = clamp(length(color) * 0.95, 0.0, 0.48);
+    // Page background color (#121212)
+    vec3 bgColor = vec3(0.0706, 0.0706, 0.0706);
 
-    // Fade at the bottom just above text into background
-    float fadeStart = max(u_fadeY - 0.20, 0.05);
-    float fadeEnd = u_fadeY;
+    // Safe bottom fade: ensures fadeEnd > fadeStart to prevent division by zero in smoothstep
+    float fadeStart = max(u_fadeY - 0.25, 0.05);
+    float fadeEnd = max(u_fadeY, fadeStart + 0.05);
     float bottomFade = 1.0 - smoothstep(fadeStart, fadeEnd, screenUv.y);
 
-    color *= bottomFade;
-    alpha *= bottomFade;
+    // Direct opaque blend into page background (eliminates Android transparent canvas compositing bugs)
+    vec3 finalColor = mix(bgColor, hairColor, bottomFade);
 
-    gl_FragColor = vec4(color, alpha);
+    gl_FragColor = vec4(finalColor, 1.0);
 }
 `;
 
@@ -114,6 +117,7 @@ interface HairShaderBgProps {
 export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const fadeYRef = useRef(fadeY);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
     fadeYRef.current = fadeY;
@@ -123,11 +127,16 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // Try standard contexts; alpha: false ensures direct hardware composition on Android
     const gl =
-      canvas.getContext("webgl", { alpha: true, antialias: false, powerPreference: "high-performance" }) ||
-      (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
+      (canvas.getContext("webgl", { alpha: false, antialias: false, powerPreference: "default" }) as WebGLRenderingContext | null) ||
+      (canvas.getContext("webgl", { alpha: false, antialias: false }) as WebGLRenderingContext | null) ||
+      (canvas.getContext("experimental-webgl", { alpha: false, antialias: false }) as WebGLRenderingContext | null);
 
-    if (!gl) return;
+    if (!gl) {
+      setErrorMessage("WebGL is not supported or was disabled by your browser.");
+      return;
+    }
 
     function createShader(glCtx: WebGLRenderingContext, type: number, source: string) {
       const shader = glCtx.createShader(type);
@@ -135,7 +144,9 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
       glCtx.shaderSource(shader, source);
       glCtx.compileShader(shader);
       if (!glCtx.getShaderParameter(shader, glCtx.COMPILE_STATUS)) {
-        console.error(glCtx.getShaderInfoLog(shader));
+        const log = glCtx.getShaderInfoLog(shader) || "Shader compile error";
+        console.error(log);
+        setErrorMessage(log);
         glCtx.deleteShader(shader);
         return null;
       }
@@ -153,7 +164,9 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
     gl.linkProgram(program);
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error(gl.getProgramInfoLog(program));
+      const log = gl.getProgramInfoLog(program) || "Program link error";
+      console.error(log);
+      setErrorMessage(log);
       return;
     }
 
@@ -187,9 +200,11 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
 
     function resize() {
       if (!canvas || !gl) return;
+      const width = canvas.clientWidth || window.innerWidth;
+      const height = canvas.clientHeight || window.innerHeight;
+      if (width === 0 || height === 0) return;
+
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
       const targetWidth = Math.floor(width * dpr);
       const targetHeight = Math.floor(height * dpr);
 
@@ -200,9 +215,12 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
       }
     }
 
+    // Resize on mount and on window resize only (avoids layout thrashing in requestAnimationFrame)
+    resize();
+    window.addEventListener("resize", resize);
+
     function render() {
       if (!canvas || !gl) return;
-      resize();
       const elapsed = (performance.now() - startTime) * 0.001;
 
       gl.useProgram(program);
@@ -218,6 +236,7 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", resize);
       gl.deleteBuffer(positionBuffer);
       gl.deleteProgram(program);
       gl.deleteShader(vs);
@@ -226,10 +245,17 @@ export function HairShaderBg({ fadeY = 0.65 }: HairShaderBgProps) {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="pointer-events-none absolute inset-0 w-full h-full"
-      aria-hidden="true"
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className="pointer-events-none absolute inset-0 w-full h-full"
+        aria-hidden="true"
+      />
+      {errorMessage && (
+        <div className="absolute top-2 left-2 right-2 z-50 bg-red-950/90 border border-red-500 text-red-200 text-xs p-3 rounded-lg font-mono">
+          WebGL Error: {errorMessage}
+        </div>
+      )}
+    </>
   );
 }
