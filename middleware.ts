@@ -11,8 +11,8 @@ export async function middleware(req: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_KEY;
 
-  if (url && key) {
-    // FIRE AND FORGET:
+  if (url && key && process.env.NODE_ENV !== "development") {
+    // Fire-and-forget: drain/cancel body to prevent unconsumed stream memory leaks in undici
     fetch(`${url}/rest/v1/analytics`, {
       method: "POST",
       headers: {
@@ -28,7 +28,9 @@ export async function middleware(req: NextRequest) {
         path: req.nextUrl.pathname,
         source: referralSource,
       }),
-    }).catch((err) => console.error("Analytics failed:", err));
+    })
+      .then((res) => res.body?.cancel())
+      .catch((err) => console.error("Analytics failed:", err));
   }
 
   return NextResponse.next();

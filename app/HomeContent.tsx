@@ -43,62 +43,8 @@ export default function HomeContent() {
 
   return (
     <main className="w-full">
-      {/* Above the fold hero accounting for mobile browser UI */}
-      <section
-        ref={heroRef}
-        className="relative h-[100svh] min-h-[100svh] flex flex-col justify-end items-center px-6 pb-12 pt-16 overflow-hidden"
-      >
-        {/* Content pushed down */}
-        <div className="relative z-10 w-full max-w-sm flex flex-col items-center text-center">
-          {/* YL Monogram Logo */}
-          <Logo className="mb-4" />
-
-          {/* Subtitle / text */}
-          <p
-            ref={textRef}
-            className="text-zinc-400 text-sm sm:text-base font-normal tracking-wide mb-7"
-          >
-            Now available on Play Store and App Store
-          </p>
-
-          {/* Pill buttons using existing Button component with device highlighting */}
-          <div className="w-full flex flex-col gap-3">
-            <Link
-              href={ANDROID_PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full block"
-            >
-              <Button
-                variant={device === "ANDROID" ? "fancy" : "secondary"}
-                className="w-full"
-              >
-                Android
-              </Button>
-            </Link>
-
-            <Link
-              href={IOS_APP_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full block"
-            >
-              <Button
-                variant={device === "APPLE" ? "fancy" : "secondary"}
-                className="w-full"
-              >
-                iOS
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* [SECTION 2: THE BENEFITS / FEATURES] */}
-      <BenefitsSection />
-
       {/* [SECTION 3: CLOSING CALL TO ACTION - 80vh EPIC FINALE] */}
-      <section className="relative min-h-[80svh] flex flex-col justify-center items-center px-6 py-20 overflow-hidden text-center">
+      <section className="relative min-h-[100svh] flex flex-col justify-center items-center px-6 py-20 overflow-hidden text-center">
         {/* Ambient atmospheric glow */}
         <div
           className="pointer-events-none absolute inset-0 flex items-center justify-center"
@@ -113,7 +59,8 @@ export default function HomeContent() {
 
           {/* Headline & Subhead */}
           <H2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-3 text-balance">
-            Try YourLook today <span className="whitespace-nowrap">for free</span>
+            Try YourLook today{" "}
+            <span className="whitespace-nowrap">for free</span>
           </H2>
           <P colour="muted" className="text-base sm:text-lg mb-8 max-w-md">
             Available on iOS & Android
@@ -196,6 +143,9 @@ export default function HomeContent() {
           </p>
         </div>
       </section>
+
+      {/* [SECTION 2: THE BENEFITS / FEATURES] */}
+      <BenefitsSection />
     </main>
   );
 }

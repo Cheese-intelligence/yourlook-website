@@ -10,9 +10,7 @@ import {
 } from "lucide-react";
 import React, { ReactNode, useState } from "react";
 import { cn } from "../lib/utils";
-import H3 from "./H3";
-import P from "./P";
-import PillCard from "./PillCard";
+import FeatureCard from "./FeatureCard";
 
 export interface BookingPreviewProps {
   shopName?: string;
@@ -130,57 +128,48 @@ export function BookingPreview({
           </div>
         </div>
       </div>
-
-      {/* Coming soon badge */}
-      <div className="mt-3 flex justify-center">
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wide text-zinc-400 bg-[#323232] border border-zinc-700/60">
-          coming soon
-        </span>
-      </div>
     </div>
   );
 }
 
 export interface BookingCardProps {
   className?: string;
+  header?: ReactNode;
   title?: ReactNode;
+  description?: ReactNode;
   subtitle?: ReactNode;
   shopName?: string;
   statusText?: string;
   timeSlot?: string;
   address?: string;
   initialBooked?: boolean;
+  showComingSoon?: boolean;
 }
 
 export default function BookingCard({
   className,
+  header,
   title = (
     <>
       <span className="text-[#FFF2C0]">Book the pro</span> behind the cut
     </>
   ),
+  description,
   subtitle = "Love a look? Book an appointment with the exact barber who made it.",
   shopName = "Fullstack Barbers",
   statusText = "Open · 8am - 5pm",
   timeSlot = "Tomorrow · 3:00 PM",
   address = "1555 Dalmatian St · 5 min away",
   initialBooked = false,
+  showComingSoon = true,
 }: BookingCardProps) {
   return (
-    <PillCard
-      className={cn(
-        "flex flex-col justify-between p-6 sm:p-7 bg-[#212121] border border-zinc-800/80 hover:border-zinc-700 transition-all",
-        className,
-      )}
-    >
-      <div className="space-y-2">
-        <H3 className="text-lg sm:text-xl">{title}</H3>
-        <P colour="muted" size="sm" className="text-xs sm:text-sm">
-          {subtitle}
-        </P>
-      </div>
-
-      <div className="mt-5">
+    <FeatureCard
+      className={className}
+      header={header ?? title}
+      description={description ?? subtitle}
+      showComingSoon={showComingSoon}
+      playground={
         <BookingPreview
           shopName={shopName}
           statusText={statusText}
@@ -188,7 +177,7 @@ export default function BookingCard({
           address={address}
           initialBooked={initialBooked}
         />
-      </div>
-    </PillCard>
+      }
+    />
   );
 }
