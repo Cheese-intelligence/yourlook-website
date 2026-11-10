@@ -7,7 +7,12 @@ export async function GET(req: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_KEY;
 
-  if (url && key && process.env.NODE_ENV !== "development") {
+  if (process.env.NODE_ENV === "development") {
+    const referralSource = req.nextUrl.searchParams.get("ref") || "qr";
+    console.log(
+      `dev mode stopped: tracking install redirect view (source: ${referralSource})`,
+    );
+  } else if (url && key) {
     const referralSource = req.nextUrl.searchParams.get("ref") || "qr";
     const userAgent = req.headers.get("user-agent") || "unknown";
     const referer = req.headers.get("referer") || "direct";

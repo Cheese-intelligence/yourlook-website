@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   if (req.method !== "GET") {
     return NextResponse.next();
   }
@@ -11,7 +11,14 @@ export async function middleware(req: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_KEY;
 
-  if (url && key && process.env.NODE_ENV !== "development") {
+  if (process.env.NODE_ENV === "development") {
+    console.log(
+      `dev mode stopped: tracking view (path: ${req.nextUrl.pathname}, source: ${referralSource})`,
+    );
+    return NextResponse.next();
+  }
+
+  if (url && key) {
     // Fire-and-forget: drain/cancel body to prevent unconsumed stream memory leaks in undici
     fetch(`${url}/rest/v1/analytics`, {
       method: "POST",

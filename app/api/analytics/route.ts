@@ -37,6 +37,22 @@ export async function POST(req: NextRequest) {
     const path = (body.path as string) || "/";
     const source = (body.source as string) || "organic";
 
+    // In development mode, suppress sending to Supabase and log instead
+    if (process.env.NODE_ENV === "development") {
+      console.log(`dev mode stopped: tracking press ${eventType}`, {
+        event_type: eventType,
+        user_agent: userAgent,
+        referer: referer,
+        path: path,
+        source: source,
+      });
+      return NextResponse.json({
+        success: true,
+        devMode: true,
+        message: `dev mode stopped: tracking press ${eventType}`,
+      });
+    }
+
     // Supabase REST endpoint only accepts table columns:
     // event_type, user_agent, referer, path, source
     const res = await fetch(`${url}/rest/v1/analytics`, {

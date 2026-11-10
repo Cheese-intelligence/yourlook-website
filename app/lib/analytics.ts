@@ -46,6 +46,15 @@ export function trackEvent(
     source: String(source),
   };
 
+  // In development mode, suppress sending to Supabase and log instead
+  if (process.env.NODE_ENV === "development") {
+    console.log(
+      `dev mode stopped: tracking press ${eventName}`,
+      payload,
+    );
+    return;
+  }
+
   const payloadString = JSON.stringify(payload);
 
   // 1. Try navigator.sendBeacon for fast, non-blocking delivery

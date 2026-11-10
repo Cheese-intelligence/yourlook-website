@@ -24,7 +24,7 @@ Welcome to the **YourLook Website** codebase. This repository hosts the public w
 ```
 yourlook-website/
 ├── AGENTS.md                  # This file (Agent instructions & standard patterns)
-├── middleware.ts              # Next.js middleware for analytics tracking (matcher: "/")
+├── proxy.ts                   # Next.js 16 proxy for analytics tracking (matcher: "/")
 ├── app/
 │   ├── layout.tsx             # Root layout (dark theme, global footer with legal links)
 │   ├── page.tsx               # Main landing page (delegates to HomeContent.tsx)
