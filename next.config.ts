@@ -1,14 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
   async redirects() {
     return [
       {
         source: "/beta",
         destination: "/",
-        permanent: false,
+        permanent: true,
+      },
+      {
+        source: "/beta/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/thank-you",
+        destination: "/",
+        permanent: true,
       },
     ];
   },
