@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import BenefitsSection from "./components/BenefitsSection";
 import { Button } from "./components/Button";
+import H2 from "./components/H2";
 import Logo from "./components/Logo";
+import P from "./components/P";
 import { ANDROID_PLAY_STORE_URL, IOS_APP_STORE_URL } from "./constants";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
@@ -104,6 +106,46 @@ export default function HomeContent() {
 
       {/* [SECTION 2: THE BENEFITS / FEATURES] */}
       <BenefitsSection />
+
+      {/* [SECTION 3: CLOSING CALL TO ACTION] */}
+      <section className="mx-auto max-w-xl w-full px-5 py-20 sm:py-28 text-center flex flex-col items-center">
+        <H2 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-3">
+          Try YourLook today for free
+        </H2>
+        <P colour="muted" className="mb-8">
+          Available on Android & iOS
+        </P>
+
+        <div className="w-full max-w-xs sm:max-w-md flex flex-col sm:flex-row gap-3">
+          <Link
+            href={ANDROID_PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex-1"
+          >
+            <Button
+              variant={device === "ANDROID" ? "fancy" : "secondary"}
+              className="w-full"
+            >
+              Download for Android
+            </Button>
+          </Link>
+
+          <Link
+            href={IOS_APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex-1"
+          >
+            <Button
+              variant={device === "APPLE" ? "fancy" : "secondary"}
+              className="w-full"
+            >
+              Download for iOS
+            </Button>
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }

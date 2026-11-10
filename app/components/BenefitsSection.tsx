@@ -53,7 +53,9 @@ export default function BenefitsSection() {
                     Marcus Vance
                     <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
                   </div>
-                  <div className="text-xs text-zinc-400">Master Barber • 8 yrs</div>
+                  <div className="text-xs text-zinc-400">
+                    Master Barber • 8 yrs
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-1 bg-zinc-800/70 px-2 py-0.5 rounded-md text-xs text-amber-300 font-medium">
@@ -110,7 +112,9 @@ export default function BenefitsSection() {
                 <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-zinc-800/70 border border-zinc-700/60">
                   <CalendarCheck className="w-4 h-4 text-[#BDCEFF] shrink-0" />
                   <div className="text-xs text-zinc-200">
-                    <div className="font-semibold text-white">Friday, Oct 24</div>
+                    <div className="font-semibold text-white">
+                      Friday, Oct 24
+                    </div>
                     <div className="text-zinc-400">2:30 PM • 45 min slot</div>
                   </div>
                 </div>
@@ -160,7 +164,9 @@ export default function BenefitsSection() {
 
                 <div className="w-full bg-zinc-900/80 border border-cyan-500/20 rounded-xl px-3 py-1.5 text-xs flex justify-between items-center">
                   <span className="text-zinc-300">Style Match</span>
-                  <span className="text-cyan-300 font-semibold">96% High Fit</span>
+                  <span className="text-cyan-300 font-semibold">
+                    96% High Fit
+                  </span>
                 </div>
               </div>
             </div>
@@ -188,16 +194,24 @@ export default function BenefitsSection() {
                   <div className="w-8 h-8 rounded-lg bg-cyan-950/50 border border-cyan-400/40 flex items-center justify-center mb-2">
                     <Droplets className="w-4 h-4 text-cyan-300" />
                   </div>
-                  <div className="text-xs font-semibold text-white">Matte Clay</div>
-                  <div className="text-[10px] text-zinc-400">High Hold • Low Shine</div>
+                  <div className="text-xs font-semibold text-white">
+                    Matte Clay
+                  </div>
+                  <div className="text-[10px] text-zinc-400">
+                    High Hold • Low Shine
+                  </div>
                 </div>
 
                 <div className="p-3 rounded-xl bg-zinc-900 border border-violet-400/30 shadow-[0_0_12px_rgba(167,139,250,0.1)] flex flex-col items-center text-center">
                   <div className="w-8 h-8 rounded-lg bg-violet-950/50 border border-violet-400/40 flex items-center justify-center mb-2">
                     <Sparkles className="w-4 h-4 text-violet-300" />
                   </div>
-                  <div className="text-xs font-semibold text-white">Sea Salt Spray</div>
-                  <div className="text-[10px] text-zinc-400">Texture & Volume</div>
+                  <div className="text-xs font-semibold text-white">
+                    Sea Salt Spray
+                  </div>
+                  <div className="text-[10px] text-zinc-400">
+                    Texture & Volume
+                  </div>
                 </div>
               </div>
 
@@ -232,7 +246,9 @@ export default function BenefitsSection() {
                   Personal Lookbook
                   <Bookmark className="w-3 h-3 text-[#FFF2C0] fill-[#FFF2C0]" />
                 </div>
-                <div className="text-[11px] text-zinc-400">Cut History • 4 saved</div>
+                <div className="text-[11px] text-zinc-400">
+                  Cut History • 4 saved
+                </div>
               </div>
             </div>
 
