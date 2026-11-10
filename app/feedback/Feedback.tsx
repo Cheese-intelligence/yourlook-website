@@ -17,7 +17,9 @@ export default function Feedback() {
   return (
     <main className="mx-auto max-w-xl w-full p-5 py-12 space-y-7">
       <div>
-        <Logo />
+        <div className="flex justify-center w-full">
+          <Logo />
+        </div>
         <H1 className="text-center">YourLook Feedback</H1>
         <P className="text-center">
           We’d love to hear your thoughts or suggestions.

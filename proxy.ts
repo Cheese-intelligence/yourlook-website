@@ -6,32 +6,43 @@ export async function proxy(req: NextRequest) {
   }
 
   const referralSource = req.nextUrl.searchParams.get("ref") || "organic";
-
   const userAgent = req.headers.get("user-agent") || "unknown";
   const referer = req.headers.get("referer") || "direct";
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_KEY;
 
-  // FIRE AND FORGET:
-  fetch(`${url}/rest/v1/analytics`, {
-    method: "POST",
-    headers: {
-      apikey: key!,
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify({
-      event_type: "view",
-      user_agent: userAgent,
-      referer: referer,
-      path: req.nextUrl.pathname,
-      source: referralSource,
-    }),
-  }).catch((err) => console.error("Analytics failed:", err));
+  if (process.env.NODE_ENV === "development") {
+    console.log(
+      `dev mode stopped: tracking view (path: ${req.nextUrl.pathname}, source: ${referralSource})`,
+    );
+    return NextResponse.next();
+  }
+
+  if (url && key) {
+    // Fire-and-forget: drain/cancel body to prevent unconsumed stream memory leaks in undici
+    fetch(`${url}/rest/v1/analytics`, {
+      method: "POST",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify({
+        event_type: "view",
+        user_agent: userAgent,
+        referer: referer,
+        path: req.nextUrl.pathname,
+        source: referralSource,
+      }),
+    })
+      .then((res) => res.body?.cancel())
+      .catch((err) => console.error("Analytics failed:", err));
+  }
 
   return NextResponse.next();
 }
+
 export const config = {
   // This matches ONLY the root. No sub-pages, no images, no scripts.
   matcher: "/",

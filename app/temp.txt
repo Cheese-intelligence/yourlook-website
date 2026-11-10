@@ -1,0 +1,14 @@
+{/* Below the fold content */}
+      <section className="mx-auto max-w-xl w-full p-5 py-12 space-y-5">
+        <YouTubeCard
+          title="Stylist: How to Use"
+          description="Set up your profile, manage bookings, and send looks to clients."
+          videoId="aL15gVn5esw"
+        />
+
+        <YouTubeCard
+          title="Client: How to Use"
+          description="Find top stylists, book sessions, and get your personalized style."
+          videoId="lEPsdg5ODIQ"
+        />
+      </section>

@@ -10,7 +10,7 @@ export async function GET() {
     return new NextResponse(htmlContent, {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
-  } catch (error) {
+  } catch {
     return new NextResponse('Error loading Terms and Conditions', { status: 500 });
   }
 }
