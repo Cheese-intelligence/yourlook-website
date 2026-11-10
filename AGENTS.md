@@ -46,6 +46,12 @@ yourlook-website/
 │   ├── contact-us/            # Contact form (Server action + thank-you page)
 │   ├── feedback/              # Feedback form (Server action + thank-you page)
 │   │
+│   ├── api/
+│   │   └── analytics/route.ts # Telemetry endpoint (records click events to Supabase)
+│   ├── lib/
+│   │   ├── analytics.ts       # Client tracking helper (trackEvent)
+│   │   └── utils.ts           # Class merging helper (cn)
+│   │
 │   ├── documents/             # Raw HTML legal documents exported from Notion
 │   │   ├── privacy_notice.html
 │   │   ├── terms_and_conditions.html

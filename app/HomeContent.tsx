@@ -5,6 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 import BenefitsSection from "./components/BenefitsSection";
 import { Button } from "./components/Button";
+import H1 from "./components/H1";
 import H2 from "./components/H2";
 import Logo from "./components/Logo";
 import P from "./components/P";
@@ -13,8 +14,139 @@ import {
   IOS_APP_STORE_URL,
   QR_INSTALL_URL,
 } from "./constants";
+import { trackEvent } from "./lib/analytics";
 
 type DeviceType = "APPLE" | "ANDROID" | "DESKTOP" | "UNKNOWN";
+
+function MobileCTA({
+  device,
+  compact = false,
+}: {
+  device: DeviceType;
+  compact?: boolean;
+}) {
+  const btnClasses = compact
+    ? "w-full h-11 text-xs sm:text-sm font-semibold"
+    : "w-full h-12";
+
+  const onAppleClick = (secondary = false) => {
+    if (compact) {
+      trackEvent("click_bottom_cta", {
+        target: "app_store",
+        type: secondary ? "secondary_link" : "button",
+      });
+    } else {
+      trackEvent("click_app_store", {
+        source: "hero_mobile",
+        type: secondary ? "secondary_link" : "button",
+      });
+    }
+  };
+
+  const onAndroidClick = (secondary = false) => {
+    if (compact) {
+      trackEvent("click_bottom_cta", {
+        target: "play_store",
+        type: secondary ? "secondary_link" : "button",
+      });
+    } else {
+      trackEvent("click_play_store", {
+        source: "hero_mobile",
+        type: secondary ? "secondary_link" : "button",
+      });
+    }
+  };
+
+  if (device === "APPLE") {
+    return (
+      <div className="flex flex-col items-center gap-2.5 w-full max-w-xs">
+        <Link
+          href={IOS_APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full"
+          onClick={() => onAppleClick(false)}
+        >
+          <Button variant="fancy" className={btnClasses}>
+            Download on App Store
+          </Button>
+        </Link>
+        <Link
+          href={ANDROID_PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
+          onClick={() => onAndroidClick(true)}
+        >
+          Looking for Android?
+        </Link>
+      </div>
+    );
+  }
+
+  if (device === "ANDROID") {
+    return (
+      <div className="flex flex-col items-center gap-2.5 w-full max-w-xs">
+        <Link
+          href={ANDROID_PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full"
+          onClick={() => onAndroidClick(false)}
+        >
+          <Button variant="fancy" className={btnClasses}>
+            Get it on Google Play
+          </Button>
+        </Link>
+        <Link
+          href={IOS_APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
+          onClick={() => onAppleClick(true)}
+        >
+          Looking for iOS?
+        </Link>
+      </div>
+    );
+  }
+
+  // UNKNOWN / SSR: Render both buttons with neutral secondary styling
+  return (
+    <div
+      className={`w-full ${
+        compact ? "max-w-xs sm:max-w-sm" : "max-w-xs sm:max-w-md"
+      } flex flex-col sm:flex-row gap-2.5 sm:gap-3`}
+    >
+      <Link
+        href={IOS_APP_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full flex-1"
+        onClick={() => onAppleClick(false)}
+      >
+        <Button variant="secondary" className={btnClasses}>
+          Download on App Store
+        </Button>
+      </Link>
+
+      <Link
+        href={ANDROID_PLAY_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full flex-1"
+        onClick={() => onAndroidClick(false)}
+      >
+        <Button
+          variant="secondary"
+          className={btnClasses}
+        >
+          Get it on Google Play
+        </Button>
+      </Link>
+    </div>
+  );
+}
 
 function detectDevice(): DeviceType {
   const ua = navigator.userAgent;
@@ -53,15 +185,20 @@ export default function HomeContent() {
 
         <div className="relative z-10 w-full max-w-xl flex flex-col items-center">
           {/* Logo Monogram */}
-          <Logo className="mb-5" />
+          <Logo className="mb-4" />
+
+          {/* Early Access Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium text-zinc-400 bg-[#212121] border border-zinc-800 mb-4 tracking-wide shadow-xs">
+            Early Access
+          </div>
 
           {/* Headline & Subhead */}
-          <H2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-3 text-balance">
-            Try YourLook today{" "}
-            <span className="whitespace-nowrap">for free</span>
-          </H2>
-          <P colour="muted" className="text-base sm:text-lg mb-8 max-w-md">
-            Available on iOS & Android
+          <H1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-balance">
+            Never get a bad haircut again.
+          </H1>
+          <P colour="muted" className="text-base sm:text-lg mb-8 max-w-lg">
+            Save your exact cut formulas, keep your haircut history, and browse
+            verified local barber portfolios.
           </P>
 
           {/* Conditional CTA: QR code for Desktop, Direct Buttons for Mobile */}
@@ -89,6 +226,9 @@ export default function HomeContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
+                  onClick={() =>
+                    trackEvent("click_app_store", { source: "hero_desktop" })
+                  }
                 >
                   App Store
                 </Link>
@@ -98,46 +238,21 @@ export default function HomeContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
+                  onClick={() =>
+                    trackEvent("click_play_store", { source: "hero_desktop" })
+                  }
                 >
                   Google Play
                 </Link>
               </div>
             </div>
           ) : (
-            <div className="w-full max-w-xs sm:max-w-md flex flex-col sm:flex-row gap-3">
-              <Link
-                href={ANDROID_PLAY_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex-1"
-              >
-                <Button
-                  variant={device === "ANDROID" ? "fancy" : "secondary"}
-                  className="w-full h-12"
-                >
-                  Download for Android
-                </Button>
-              </Link>
-
-              <Link
-                href={IOS_APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex-1"
-              >
-                <Button
-                  variant={device === "APPLE" ? "fancy" : "secondary"}
-                  className="w-full h-12"
-                >
-                  Download for iOS
-                </Button>
-              </Link>
-            </div>
+            <MobileCTA device={device} />
           )}
 
           {/* Micro-trust reassurance */}
           <p className="text-xs text-zinc-500 mt-6 tracking-wide">
-            Free to download • No subscription required
+            No Subscription required • Feedback welcome
           </p>
         </div>
       </section>
@@ -164,7 +279,11 @@ export default function HomeContent() {
             Try YourLook today{" "}
             <span className="whitespace-nowrap">for free</span>
           </H2>
-          <P colour="muted" size="sm" className="text-sm sm:text-base mb-6 max-w-sm">
+          <P
+            colour="muted"
+            size="sm"
+            className="text-sm sm:text-base mb-6 max-w-sm"
+          >
             Available on iOS & Android
           </P>
 
@@ -189,6 +308,12 @@ export default function HomeContent() {
                     href={IOS_APP_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent("click_bottom_cta", {
+                        target: "app_store",
+                        source: "bottom_desktop",
+                      })
+                    }
                   >
                     <Button
                       variant="secondary"
@@ -201,6 +326,12 @@ export default function HomeContent() {
                     href={ANDROID_PLAY_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent("click_bottom_cta", {
+                        target: "play_store",
+                        source: "bottom_desktop",
+                      })
+                    }
                   >
                     <Button
                       variant="secondary"
@@ -213,40 +344,12 @@ export default function HomeContent() {
               </div>
             </div>
           ) : (
-            <div className="w-full max-w-xs sm:max-w-sm flex flex-col sm:flex-row gap-2.5">
-              <Link
-                href={ANDROID_PLAY_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex-1"
-              >
-                <Button
-                  variant={device === "ANDROID" ? "fancy" : "secondary"}
-                  className="w-full h-11 text-xs sm:text-sm font-semibold"
-                >
-                  Download for Android
-                </Button>
-              </Link>
-
-              <Link
-                href={IOS_APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex-1"
-              >
-                <Button
-                  variant={device === "APPLE" ? "fancy" : "secondary"}
-                  className="w-full h-11 text-xs sm:text-sm font-semibold"
-                >
-                  Download for iOS
-                </Button>
-              </Link>
-            </div>
+            <MobileCTA device={device} compact />
           )}
 
           {/* Micro-trust reassurance */}
           <p className="text-[11px] text-zinc-500 mt-4 tracking-wide">
-            Free to download • No subscription required
+            No Subscription required • Feedback welcome
           </p>
         </div>
       </section>

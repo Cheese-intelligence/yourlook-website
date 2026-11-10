@@ -11,6 +11,7 @@ The YourLook website is built as an ultra-lean Next.js 16 application optimized 
 | Route | Handler / Page | Purpose |
 | :--- | :--- | :--- |
 | `/` | `app/page.tsx` & `app/HomeContent.tsx` | Main landing hero, OS detection, App Store / Google Play links, video tutorials |
+| `/api/analytics` | `app/api/analytics/route.ts` | Telemetry endpoint for client click events (`click_app_store`, `click_play_store`, `click_bottom_cta`) |
 | `/contact-us` | `app/contact-us/page.tsx` | User & business inquiry form |
 | `/feedback` | `app/feedback/page.tsx` | User product feedback form |
 | `/install` | `app/install/route.ts` | Dynamic 302 device redirect directly to iOS App Store / Google Play Store |
@@ -24,9 +25,17 @@ Configured in `next.config.ts`:
 
 ---
 
-## Analytics Middleware (`middleware.ts`)
+## Analytics & Funnel Telemetry
 
-Next.js Edge middleware at `middleware.ts` intercepts requests matching `/` to fire-and-forget an analytics record directly to Supabase (`/rest/v1/analytics`) logging referrer, user-agent, and traffic source (`?ref=`).
+The platform tracks end-to-end conversion through a combination of edge middleware and client event telemetry:
+
+1. **Page View Telemetry (`middleware.ts`):** Edge middleware intercepts requests to `/` to fire-and-forget a `view` event to Supabase (`/rest/v1/analytics`), logging referrer, user-agent, and traffic source (`?ref=`).
+2. **Client Conversion Telemetry (`app/lib/analytics.ts`):** High-priority call-to-action interactions call `trackEvent(eventName, metadata)`. It uses `navigator.sendBeacon` (with `fetch` `keepalive` fallback) to deliver events to `/api/analytics` without blocking page unloads:
+   - `click_app_store`: Clicks targeting the iOS App Store.
+   - `click_play_store`: Clicks targeting Google Play.
+   - `click_bottom_cta`: Clicks on the bottom call-to-action module.
+
+$$\text{Conversion Rate} = \frac{\text{Store Clicks}}{\text{Unique Page Views}}$$
 
 ---
 
