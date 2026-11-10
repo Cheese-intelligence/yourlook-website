@@ -50,6 +50,7 @@ yourlook-website/
 │   │   ├── privacy_notice.html
 │   │   ├── terms_and_conditions.html
 │   │   └── README.md
+│   ├── install/route.ts       # 302 redirect directly to App Store / Play Store
 │   ├── privacy_policy/route.ts       # Serves privacy_notice.html directly
 │   └── terms_and_conditions/route.ts # Serves terms_and_conditions.html directly
 │

@@ -13,6 +13,7 @@ The YourLook website is built as an ultra-lean Next.js 16 application optimized 
 | `/` | `app/page.tsx` & `app/HomeContent.tsx` | Main landing hero, OS detection, App Store / Google Play links, video tutorials |
 | `/contact-us` | `app/contact-us/page.tsx` | User & business inquiry form |
 | `/feedback` | `app/feedback/page.tsx` | User product feedback form |
+| `/install` | `app/install/route.ts` | Dynamic 302 device redirect directly to iOS App Store / Google Play Store |
 | `/privacy_policy` | `app/privacy_policy/route.ts` | Static raw HTML Privacy Notice |
 | `/terms_and_conditions` | `app/terms_and_conditions/route.ts` | Static raw HTML Terms & Conditions |
 
