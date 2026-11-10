@@ -1,4 +1,3 @@
-import Link from "next/link";
 import BookingCard from "./BookingCard";
 import FeatureCard from "./FeatureCard";
 import H2 from "./H2";
@@ -45,15 +44,15 @@ export default function BenefitsSection() {
             description="Store multi-angle photos, cut notes, and precise barber formulas so your stylist gets it right every single visit."
           />
 
-          {/* Feature B: Real Cuts by Verified Stylists */}
+          {/* Feature B: Recent Haircuts with Real Results */}
           <StylistsCard
             header={
               <>
-                Real Cuts by{" "}
-                <span className="text-[#BDCEFF]">Verified Stylists</span>
+                Recent Haircuts with{" "}
+                <span className="text-[#BDCEFF]">Real Results</span>
               </>
             }
-            description="Discover genuine local haircut portfolios from verified barbers and stylists with real customer cut history."
+            description="Browse recent haircuts and genuine local barber and stylist portfolios with real customer results."
           />
         </div>
       </div>
@@ -62,19 +61,8 @@ export default function BenefitsSection() {
       <div className="space-y-6">
         <div className="space-y-1">
           <H3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Coming in upcoming releases
+            Upcoming releases
           </H3>
-          <P colour="muted" size="sm">
-            Vote on upcoming roadmap priorities or submit your feature requests
-            directly to our founding team via{" "}
-            <Link
-              href="/feedback"
-              className="text-white hover:text-[#FFF2C0] underline underline-offset-4 font-medium transition-colors"
-            >
-              /feedback
-            </Link>
-            .
-          </P>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

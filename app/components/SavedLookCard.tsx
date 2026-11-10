@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  Check,
-  Copy,
-  Loader2,
-  MessageSquare,
-  MoreVertical,
-  Scissors,
-  Share2,
-} from "lucide-react";
+import { Check, Loader2, MessageSquare, Scissors } from "lucide-react";
 import React, { ReactNode, useState } from "react";
 import { cn } from "../lib/utils";
 import FeatureCard from "./FeatureCard";
@@ -44,8 +36,6 @@ export function SavedLookPreview({
     images && images.length > 0 ? images : DEFAULT_LOOKBOOK_IMAGES;
   const [hasComment, setHasComment] = useState(initialCommented);
   const [isAddingComment, setIsAddingComment] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const handleAddComment = () => {
     if (isAddingComment) return;
@@ -61,20 +51,6 @@ export function SavedLookPreview({
     e?.stopPropagation();
     setHasComment(false);
     setIsAddingComment(false);
-    setIsMenuOpen(false);
-    setCopied(false);
-  };
-
-  const handleCopyFormula = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(noteText).catch(() => {});
-    }
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-      setIsMenuOpen(false);
-    }, 900);
   };
 
   return (
@@ -183,52 +159,6 @@ export function SavedLookPreview({
                 </>
               )}
             </button>
-
-            {/* Circular 3-dots menu button */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                title="More options"
-                aria-label="More options"
-                className="w-10 h-10 rounded-full bg-[#404040] hover:bg-[#4d4d4d] text-zinc-300 hover:text-white flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-              >
-                <MoreVertical className="w-4 h-4" />
-              </button>
-
-              {/* Popover options menu */}
-              {isMenuOpen && (
-                <div className="absolute right-0 bottom-full mb-2 w-44 rounded-xl bg-[#262626] border border-zinc-700/80 p-1 shadow-xl z-20">
-                  <button
-                    type="button"
-                    onClick={handleCopyFormula}
-                    className="w-full text-left px-2.5 py-1.5 text-xs text-zinc-300 hover:text-white hover:bg-[#383838] rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-emerald-300 font-medium">
-                          Formula copied!
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                        <span>Copy formula</span>
-                      </>
-                    )}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="w-full text-left px-2.5 py-1.5 text-xs text-zinc-300 hover:text-white hover:bg-[#383838] rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
-                  >
-                    <Share2 className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>Share look</span>
-                  </button>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>

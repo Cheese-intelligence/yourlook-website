@@ -198,7 +198,7 @@ export default function HomeContent() {
           </H1>
           <P colour="muted" className="text-base sm:text-lg mb-8 max-w-lg">
             Save your exact cut formulas, keep your haircut history, and browse
-            verified local barber portfolios.
+            recent haircuts with real results.
           </P>
 
           {/* Conditional CTA: QR code for Desktop, Direct Buttons for Mobile */}

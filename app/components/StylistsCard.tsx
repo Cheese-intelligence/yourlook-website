@@ -1,4 +1,3 @@
-import { Check } from "lucide-react";
 import React, { ReactNode } from "react";
 import FeatureCard from "./FeatureCard";
 
@@ -21,11 +20,12 @@ export default function StylistsCard({
   header,
   title = (
     <>
-      Real cuts. <span className="text-[#BDCEFF]">Real Stylists.</span>
+      Recent haircuts with{" "}
+      <span className="text-[#BDCEFF]">Real Results</span>
     </>
   ),
   description,
-  subtitle = "Browse verified barber and stylist portfolios with real customer results.",
+  subtitle = "Browse recent haircuts with real results.",
   barberImage = "/images/stylists/barber.jpg",
   barberName = "Liam",
   barberRole = "Barber · Glasgow",
@@ -51,17 +51,9 @@ export default function StylistsCard({
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
             <div className="absolute bottom-2.5 left-2.5 right-2.5">
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs font-bold text-white tracking-tight truncate">
-                  {barberName}
-                </span>
-                <span
-                  title="Verified Barber"
-                  className="w-3.5 h-3.5 rounded-full bg-[#BDCEFF] text-black flex items-center justify-center shrink-0 shadow-xs"
-                >
-                  <Check className="w-2.5 h-2.5 stroke-[3]" />
-                </span>
-              </div>
+              <span className="text-xs font-bold text-white tracking-tight truncate block">
+                {barberName}
+              </span>
               <span className="text-[10px] text-zinc-300 font-medium tracking-tight block truncate">
                 {barberRole}
               </span>
@@ -79,17 +71,9 @@ export default function StylistsCard({
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
             <div className="absolute bottom-2.5 left-2.5 right-2.5">
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs font-bold text-white tracking-tight truncate">
-                  {stylistName}
-                </span>
-                <span
-                  title="Verified Stylist"
-                  className="w-3.5 h-3.5 rounded-full bg-[#BDCEFF] text-black flex items-center justify-center shrink-0 shadow-xs"
-                >
-                  <Check className="w-2.5 h-2.5 stroke-[3]" />
-                </span>
-              </div>
+              <span className="text-xs font-bold text-white tracking-tight truncate block">
+                {stylistName}
+              </span>
               <span className="text-[10px] text-zinc-300 font-medium tracking-tight block truncate">
                 {stylistRole}
               </span>
