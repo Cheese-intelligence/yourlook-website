@@ -38,8 +38,8 @@ export default function BenefitsSection() {
           <SavedLookCard
             header={
               <>
-                <span className="text-[#FFF2C0]">Saved Looks</span> &amp; Barber
-                Formulas
+                <span className="text-[#FFF2C0]">Saved Looks</span>
+                {" & Barber Formulas"}
               </>
             }
             description="Store multi-angle photos, cut notes, and precise barber formulas so your stylist gets it right every single visit."
