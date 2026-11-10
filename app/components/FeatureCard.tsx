@@ -73,10 +73,14 @@ export default function FeatureCard({
         )}
       </div>
 
-      {resolvedSlot && <div className="mt-5 w-full">{resolvedSlot}</div>}
+      {resolvedSlot && (
+        <div className="mt-4 flex-1 flex flex-col justify-center w-full min-h-0">
+          {resolvedSlot}
+        </div>
+      )}
 
       {hasComingSoon && (
-        <div className={cn("flex justify-center", resolvedSlot ? "mt-3" : "mt-auto pt-6")}>
+        <div className={cn("flex justify-center", resolvedSlot ? "mt-4" : "mt-auto pt-6")}>
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wide text-zinc-400 bg-[#323232] border border-zinc-700/60">
             coming soon
           </span>

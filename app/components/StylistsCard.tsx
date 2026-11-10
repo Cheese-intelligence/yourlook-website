@@ -39,7 +39,7 @@ export default function StylistsCard({
       header={header ?? title}
       description={description ?? subtitle}
       playground={
-        <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+        <div className="w-full grid grid-cols-2 gap-2.5 sm:gap-3">
           {/* Barber Portrait */}
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-[#262626] border border-zinc-700/60 shadow-inner group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
