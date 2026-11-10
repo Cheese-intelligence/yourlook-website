@@ -3,6 +3,7 @@ import FeatureCard from "./FeatureCard";
 import H2 from "./H2";
 import P from "./P";
 import SavedLookCard from "./SavedLookCard";
+import StylistsCard from "./StylistsCard";
 
 export default function BenefitsSection() {
   return (
@@ -18,15 +19,8 @@ export default function BenefitsSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Feature 1 */}
-        <FeatureCard
-          header={
-            <>
-              Real cuts. <span className="text-[#BDCEFF]">Real Stylists.</span>
-            </>
-          }
-          description="Browse verified barber and stylist portfolios with real customer results."
-        />
+        {/* Feature 1: Real Cuts & Real Stylists Showcase */}
+        <StylistsCard />
 
         {/* Feature 2: Interactive Booking Preview */}
         <BookingCard />
@@ -34,7 +28,7 @@ export default function BenefitsSection() {
         {/* Feature 3 */}
         <FeatureCard
           header="Preview it before the cut"
-          description="Test styles virtually with AR face mapping to see what fits your face shape first."
+          description="Test styles virtually to see what fits you before committing."
           showComingSoon
         />
 

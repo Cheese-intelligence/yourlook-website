@@ -40,7 +40,8 @@ export function SavedLookPreview({
   initialCommented = false,
   className,
 }: SavedLookPreviewProps) {
-  const displayImages = images && images.length > 0 ? images : DEFAULT_LOOKBOOK_IMAGES;
+  const displayImages =
+    images && images.length > 0 ? images : DEFAULT_LOOKBOOK_IMAGES;
   const [hasComment, setHasComment] = useState(initialCommented);
   const [isAddingComment, setIsAddingComment] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -266,14 +267,12 @@ export default function SavedLookCard({
   noteText = "Textured lob, blunt base, sits above shoulders. Soft internal layers for movement, point-cut ends. Center part, styled with loose waves. Natural root with blonde balayage.",
   images = DEFAULT_LOOKBOOK_IMAGES,
   initialCommented = false,
-  showComingSoon = true,
 }: SavedLookCardProps) {
   return (
     <FeatureCard
       className={className}
       header={header ?? title}
       description={description ?? subtitle}
-      showComingSoon={showComingSoon}
       playground={
         <SavedLookPreview
           authorName={authorName}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import BenefitsSection from "./components/BenefitsSection";
 import { Button } from "./components/Button";
 import H2 from "./components/H2";
@@ -32,8 +32,6 @@ function detectDevice(): DeviceType {
 
 export default function HomeContent() {
   const [device, setDevice] = useState<DeviceType>("UNKNOWN");
-  const heroRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -43,7 +41,7 @@ export default function HomeContent() {
 
   return (
     <main className="w-full">
-      {/* [SECTION 3: CLOSING CALL TO ACTION - 80vh EPIC FINALE] */}
+      {/* [SECTION 1: HERO / ABOVE-THE-FOLD CALL TO ACTION] */}
       <section className="relative min-h-[100svh] flex flex-col justify-center items-center px-6 py-20 overflow-hidden text-center">
         {/* Ambient atmospheric glow */}
         <div
@@ -146,6 +144,112 @@ export default function HomeContent() {
 
       {/* [SECTION 2: THE BENEFITS / FEATURES] */}
       <BenefitsSection />
+
+      {/* [SECTION 3: FINAL CALL TO ACTION - COMPACT] */}
+      <section className="relative flex flex-col justify-center items-center px-6 py-16 sm:py-20 overflow-hidden text-center">
+        {/* Ambient atmospheric glow */}
+        <div
+          className="pointer-events-none absolute inset-0 flex items-center justify-center"
+          aria-hidden="true"
+        >
+          <div className="w-[400px] h-[220px] bg-gradient-to-tr from-[#bdceff]/10 via-[#fff2c0]/10 to-transparent blur-[100px] rounded-full" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-lg flex flex-col items-center">
+          {/* Compact Logo */}
+          <Logo width={48} height={35} className="mb-4 opacity-90" />
+
+          {/* Headline & Subhead */}
+          <H2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2 text-balance">
+            Try YourLook today{" "}
+            <span className="whitespace-nowrap">for free</span>
+          </H2>
+          <P colour="muted" size="sm" className="text-sm sm:text-base mb-6 max-w-sm">
+            Available on iOS & Android
+          </P>
+
+          {/* Conditional CTA: Compact horizontal card for Desktop, Compact buttons for Mobile */}
+          {device === "DESKTOP" ? (
+            <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 p-5 rounded-3xl bg-[#212121] border border-zinc-800 shadow-xl">
+              <div className="bg-white p-3 rounded-2xl shadow-sm shrink-0">
+                <QRCodeSVG
+                  value={QR_INSTALL_URL}
+                  size={184}
+                  level="M"
+                  bgColor="#ffffff"
+                  fgColor="#000000"
+                />
+              </div>
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+                <span className="text-sm text-zinc-300 font-medium">
+                  Scan with your phone to install
+                </span>
+                <div className="flex items-center gap-2.5">
+                  <Link
+                    href={IOS_APP_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="secondary"
+                      className="h-10 px-4 text-xs font-semibold rounded-xl"
+                    >
+                      App Store
+                    </Button>
+                  </Link>
+                  <Link
+                    href={ANDROID_PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="secondary"
+                      className="h-10 px-4 text-xs font-semibold rounded-xl"
+                    >
+                      Google Play
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="w-full max-w-xs sm:max-w-sm flex flex-col sm:flex-row gap-2.5">
+              <Link
+                href={ANDROID_PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex-1"
+              >
+                <Button
+                  variant={device === "ANDROID" ? "fancy" : "secondary"}
+                  className="w-full h-11 text-xs sm:text-sm font-semibold"
+                >
+                  Download for Android
+                </Button>
+              </Link>
+
+              <Link
+                href={IOS_APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex-1"
+              >
+                <Button
+                  variant={device === "APPLE" ? "fancy" : "secondary"}
+                  className="w-full h-11 text-xs sm:text-sm font-semibold"
+                >
+                  Download for iOS
+                </Button>
+              </Link>
+            </div>
+          )}
+
+          {/* Micro-trust reassurance */}
+          <p className="text-[11px] text-zinc-500 mt-4 tracking-wide">
+            Free to download • No subscription required
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
