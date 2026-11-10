@@ -1,8 +1,6 @@
 import {
   Bookmark,
-  CalendarCheck,
   CheckCircle2,
-  Clock,
   Droplets,
   ScanFace,
   Scissors,
@@ -10,6 +8,7 @@ import {
   Star,
   User,
 } from "lucide-react";
+import BookingCard from "./BookingCard";
 import H2 from "./H2";
 import H3 from "./H3";
 import P from "./P";
@@ -85,54 +84,8 @@ export default function BenefitsSection() {
           </div>
         </PillCard>
 
-        {/* Feature 2 */}
-        <PillCard className="flex flex-col justify-between p-6 sm:p-7 bg-[#212121] border border-zinc-800/80 hover:border-zinc-700 transition-all">
-          <div className="space-y-3">
-            <H3 className="text-xl">Book the pro behind the cut</H3>
-            <P colour="muted" size="sm">
-              Lock in your preferred specialist directly without phone tags or
-              wait times.
-            </P>
-          </div>
-
-          <div>
-            {/* Visual: Appointment booking popover card */}
-            <div className="mt-6 rounded-2xl bg-[#171717] p-4 border border-zinc-800/90 shadow-inner">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-medium text-zinc-400">
-                  Direct Booking
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Instant Confirm
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-zinc-800/70 border border-zinc-700/60">
-                  <CalendarCheck className="w-4 h-4 text-[#BDCEFF] shrink-0" />
-                  <div className="text-xs text-zinc-200">
-                    <div className="font-semibold text-white">
-                      Friday, Oct 24
-                    </div>
-                    <div className="text-zinc-400">2:30 PM • 45 min slot</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs">
-                  <span className="text-zinc-400 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-zinc-500" />
-                    Zero wait time
-                  </span>
-                  <span className="text-white font-medium">Reserved</span>
-                </div>
-              </div>
-            </div>
-            <div className="mt-3 text-center text-xs text-zinc-500">
-              Coming soon
-            </div>
-          </div>
-        </PillCard>
+        {/* Feature 2: Interactive Booking Preview */}
+        <BookingCard />
 
         {/* Feature 3 */}
         <PillCard className="flex flex-col justify-between p-6 sm:p-7 bg-[#212121] border border-zinc-800/80 hover:border-zinc-700 transition-all">
