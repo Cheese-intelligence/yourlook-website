@@ -46,7 +46,7 @@ export default function HomeContent() {
       {/* Above the fold hero accounting for mobile browser UI */}
       <section
         ref={heroRef}
-        className="relative min-h-[100svh] min-h-dvh flex flex-col justify-end items-center px-6 pb-12 pt-16 overflow-hidden"
+        className="relative h-[100svh] min-h-[100svh] flex flex-col justify-end items-center px-6 pb-12 pt-16 overflow-hidden"
       >
         {/* Content pushed down */}
         <div className="relative z-10 w-full max-w-sm flex flex-col items-center text-center">
