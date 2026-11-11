@@ -2,6 +2,7 @@ import BookingCard from "./BookingCard";
 import FeatureCard from "./FeatureCard";
 import H2 from "./H2";
 import H3 from "./H3";
+import LoyaltyCard from "./LoyaltyCard";
 import P from "./P";
 import SavedLookCard from "./SavedLookCard";
 import StylistsCard from "./StylistsCard";
@@ -27,32 +28,43 @@ export default function BenefitsSection() {
             What you can do today
           </H3>
           <P colour="muted" size="sm">
-            Core features live in the app today to capture your style and find
-            the right stylist.
+            Core features live in the app today to capture your style, earn rewards,
+            and find the right stylist.
           </P>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          {/* Feature A: Saved Looks & Barber Formulas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          {/* Feature A: Saved Looks & Cut Formulas */}
           <SavedLookCard
             header={
               <>
                 <span className="text-[#FFF2C0]">Saved Looks</span>
-                {" & Barber Formulas"}
+                {" & Cut Formulas"}
               </>
             }
-            description="Store multi-angle photos, cut notes, and precise barber formulas so your stylist gets it right every single visit."
+            description="Store multi-angle photos and cut notes so your stylist gets it right every visit."
           />
 
-          {/* Feature B: Recent Haircuts with Real Results */}
+          {/* Feature B: Loyalty Cards & Stamp Rewards */}
+          <LoyaltyCard
+            header={
+              <>
+                <span className="text-[#FFF2C0]">Loyalty Cards</span>
+                {" & Stamp Rewards"}
+              </>
+            }
+            description="In available shops, collect stamps with every visit and claim free rewards."
+          />
+
+          {/* Feature C: Recent Haircuts & Real Results */}
           <StylistsCard
             header={
               <>
-                Recent Haircuts with{" "}
+                Recent Haircuts &{" "}
                 <span className="text-[#BDCEFF]">Real Results</span>
               </>
             }
-            description="Browse recent haircuts and genuine local barber and stylist portfolios with real customer results."
+            description="Browse recent haircuts and photos posted directly by local barbers."
           />
         </div>
       </div>
