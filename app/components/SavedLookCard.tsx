@@ -27,7 +27,7 @@ export function SavedLookPreview({
   authorName = "Adam",
   avatarInitial = "A",
   timestamp = "3 days ago",
-  noteText = "Textured lob, blunt base, sits above shoulders. Soft internal layers for movement, point-cut ends. Center part, styled with loose waves. Natural root with blonde balayage.",
+  noteText = "Textured lob, blunt base, sits above shoulders. Soft internal layers for movement with blonde balayage.",
   images = DEFAULT_LOOKBOOK_IMAGES,
   initialCommented = false,
   className,
@@ -56,7 +56,7 @@ export function SavedLookPreview({
   return (
     <div className={cn("w-full", className)}>
       {/* Saved Look Card UI */}
-      <div className="rounded-2xl bg-[#323232] p-4 sm:p-4.5 transition-all duration-200">
+      <div className="rounded-2xl bg-[#323232] border border-zinc-700/50 p-4 sm:p-4.5 transition-all duration-200">
         <div className="space-y-3">
           {/* Header row: Author avatar, name badge, and timestamp */}
           <div className="flex items-center justify-between gap-2 min-w-0">
@@ -194,7 +194,7 @@ export default function SavedLookCard({
   authorName = "Adam",
   avatarInitial = "A",
   timestamp = "3 days ago",
-  noteText = "Textured lob, blunt base, sits above shoulders. Soft internal layers for movement, point-cut ends. Center part, styled with loose waves. Natural root with blonde balayage.",
+  noteText = "Textured lob, blunt base, sits above shoulders. Soft internal layers for movement with blonde balayage.",
   images = DEFAULT_LOOKBOOK_IMAGES,
   initialCommented = false,
 }: SavedLookCardProps) {
