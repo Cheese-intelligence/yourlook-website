@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Loader2, MessageSquare, Scissors } from "lucide-react";
+import Image from "next/image";
 import React, { ReactNode, useState } from "react";
 import { cn } from "../lib/utils";
 import FeatureCard from "./FeatureCard";
@@ -87,14 +88,14 @@ export function SavedLookPreview({
             {displayImages.map((src, idx) => (
               <div
                 key={idx}
-                className="w-[45%] sm:w-[46%] shrink-0 aspect-[3/4] rounded-xl overflow-hidden bg-[#262626] border border-zinc-700/50 shadow-inner"
+                className="relative w-[45%] sm:w-[46%] shrink-0 aspect-[3/4] rounded-xl overflow-hidden bg-[#262626] border border-zinc-700/50 shadow-inner"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={src}
                   alt={`Hairstyle angle ${idx + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 640px) 45vw, 180px"
+                  className="object-cover"
                 />
               </div>
             ))}

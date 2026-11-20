@@ -1,4 +1,5 @@
 import { Scissors } from "lucide-react";
+import Image from "next/image";
 import React, { ReactNode } from "react";
 import FeatureCard from "./FeatureCard";
 
@@ -62,12 +63,12 @@ export default function StylistsCard({
           <div className="w-full grid grid-cols-2 gap-2 sm:gap-2.5">
             {/* Barber Portrait */}
             <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#262626] border border-zinc-700/50 shadow-inner">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={barberImage}
                 alt={`${barberName} - ${barberRole}`}
-                className="w-full h-full object-cover"
-                loading="lazy"
+                fill
+                sizes="(max-width: 640px) 45vw, 180px"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
               <div className="absolute bottom-2 left-2 right-2">
@@ -82,12 +83,12 @@ export default function StylistsCard({
 
             {/* Stylist Portrait */}
             <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#262626] border border-zinc-700/50 shadow-inner">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={stylistImage}
                 alt={`${stylistName} - ${stylistRole}`}
-                className="w-full h-full object-cover"
-                loading="lazy"
+                fill
+                sizes="(max-width: 640px) 45vw, 180px"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
               <div className="absolute bottom-2 left-2 right-2">

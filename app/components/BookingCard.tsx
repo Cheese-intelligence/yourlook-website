@@ -79,9 +79,9 @@ export function BookingPreview({
         role="alert"
         aria-live="polite"
         className={cn(
-          "absolute -top-3 left-1/2 -translate-x-1/2 z-30 w-[96%] max-w-sm rounded-2xl p-3.5 bg-[#18181b]/95 backdrop-blur-md border border-[#FFF2C0]/40 shadow-2xl transition-all duration-300 ease-out flex items-start gap-3",
+          "absolute -top-3 left-1/2 -translate-x-1/2 z-30 w-[96%] max-w-sm rounded-2xl p-3.5 bg-[#18181b]/95 border border-[#FFF2C0]/40 shadow-2xl transition-all duration-300 ease-out flex items-start gap-3",
           showToast
-            ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+            ? "backdrop-blur-md opacity-100 translate-y-0 scale-100 pointer-events-auto"
             : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
         )}
       >
