@@ -66,6 +66,28 @@ function trackGoView(req: NextRequest, slug: string, destination: string) {
     .catch((err) => console.error("Analytics failed:", err));
 }
 
+function getPublicOrigin(req: NextRequest): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  }
+
+  const host = (
+    req.headers.get("x-forwarded-host") ||
+    req.headers.get("host") ||
+    ""
+  )
+    .split(",")[0]
+    .trim();
+  const proto = (req.headers.get("x-forwarded-proto") || "https")
+    .split(",")[0]
+    .trim();
+  if (host) {
+    return `${proto}://${host}`;
+  }
+
+  return req.nextUrl.origin;
+}
+
 export async function GET(
   req: NextRequest,
   context: { params: Promise<{ slug?: string[] }> },
@@ -74,7 +96,7 @@ export async function GET(
   const slug = (segments ?? []).join("/").trim().toLowerCase();
 
   const { destination, status } = resolveRedirect(slug);
-  const targetUrl = new URL(destination, req.nextUrl.origin);
+  const targetUrl = new URL(destination, getPublicOrigin(req));
 
   req.nextUrl.searchParams.forEach((value, key) => {
     if (!targetUrl.searchParams.has(key)) {
@@ -86,7 +108,8 @@ export async function GET(
 
   const res = NextResponse.redirect(targetUrl, status);
   if (status === 302 || status === 307) {
-    res.headers.set("Cache-Control", "no-store");
+    res.headers.set("Cache-Control", "no-store, max-age=0");
+    res.headers.set("CDN-Cache-Control", "no-store");
   }
   return res;
 }
