@@ -24,4 +24,5 @@ export const GO_REDIRECTS: Record<string, RedirectTarget> = {
 
   // Marketing campaigns (adjust or add new slugs here)
   qr: "/install?ref=qr",
+  nfc: "/install?ref=nfc",
 };
